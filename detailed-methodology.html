@@ -15,10 +15,10 @@
       <h2 class="text-xl font-semibold mb-2 text-gray-800">Method</h2>
       <ul class="list-disc list-inside space-y-1 text-gray-700">
         <li>For each game, a row is added to the matrix</li>
-        <li>For each game n such that i beats j, matrix[n][i]++, matrix[n][j] += -5/3 (uncorrected)</li>
-        <li>Postseason games are weighted more heavily using a linear multiplier of 1/3</li>
-        <li>Margin-of-victory is accounted for using a hyperbolic tangent function, capping at 1/3</li>
-        <li>The system is solved using least squares, optionally with Tikhonov regularization for the 2020 season</li>
+        <li>For each game n such that i beats j, matrix[n][i]++, matrix[n][j]--, results_vector[n] = log(ratconst)</li>
+        <li>Postseason games are weighted more heavily using a linear multiplier of 1/6</li>
+        <li>Margin-of-victory is accounted for using a hyperbolic tangent function, capping at 1/6</li>
+        <li>The system is solved using least squares; 1 is added to the diagonal to insure non-singulartiy.</li>
       </ul>
     </div>
 
