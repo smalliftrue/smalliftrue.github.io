@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>College Basketball Rankings</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 2em 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      text-align: center;
+      background: white;
+      padding: 2em;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    h1 {
+      margin-bottom: 1em;
+    }
+
+    select, button {
+      font-size: 1em;
+      padding: 0.5em 1em;
+      margin: 0.5em;
+    }
+
+    .link-container {
+      margin-top: 1.5em;
+    }
+
+    .link-container a {
+      display: block;
+      margin: 0.5em 0;
+      font-weight: bold;
+      text-decoration: none;
+      color: #1a73e8;
+    }
+  </style>
+
+  <script>
+    function showLinks() {
+      const year = document.getElementById("yearSelect").value;
+      const cfrLink = `cbr/cbr${year}.html`;
+      const cfodLink = `cbod/cbod${year}.html`;
+
+      document.getElementById("cfrLink").innerHTML = `<a href="${cfrLink}" target="_blank">CBR ${year}</a>`;
+      document.getElementById("cfodLink").innerHTML = `<a href="${cfodLink}" target="_blank">OPDP ${year}</a>`;
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>College Basketball Rankings</h1>
+    <label for="yearSelect">Select a Year:</label>
+    <select id="yearSelect">
+      <script>
+        for (let year = 2010; year <= 2024; year++) {
+          document.write(`<option value="${year}">${year}</option>`);
+        }
+      </script>
+    </select>
+    <button onclick="showLinks()">Go</button>
+
+    <div class="link-container">
+      <div id="cfrLink"></div>
+      <div id="cfodLink"></div>
+    </div>
+
+<div class="text-center pt-6">
+      <a href="index.html" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-xl hover:bg-blue-700 transition">
+        ← Back to Home
+      </a>
+    </div>
+
+  </div>
+</body>
+</html>

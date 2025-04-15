@@ -1,0 +1,2810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Offense-Defense Ratings 2020</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 2em;
+            background: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 0.5em;
+            text-align: left;
+        }
+        th {
+            background: #333;
+            color: white;
+            cursor: pointer;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+
+            const comparer = (idx, asc) => (a, b) => {
+                const v1 = getCellValue(asc ? a : b, idx);
+                const v2 = getCellValue(asc ? b : a, idx);
+                const f1 = parseFloat(v1);
+                const f2 = parseFloat(v2);
+                return (isNaN(f1) || isNaN(f2)) ? v1.localeCompare(v2) : f1 - f2;
+            };
+
+            document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
+                const table = th.closest('table');
+                const tbody = table.querySelector('tbody');
+                Array.from(tbody.querySelectorAll('tr'))
+                    .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+                    .forEach(tr => tbody.appendChild(tr));
+            })));
+        });
+    </script>
+</head>
+<body>
+    <h1>OPDP 2020</h1>
+    <table id="ratingTable">
+        <thead>
+            <tr>
+                <th>Team</th>
+                <th>Offense Rank</th>
+                <th>Offense Rating</th>
+                <th>Defense Rank</th>
+                <th>Defense Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+    
+            <tr>
+                <td>San Diego</td>
+                <td>342</td>
+                <td>99.4123</td>
+                <td>2</td>
+                <td>0.1812</td>
+            </tr>
+        
+            <tr>
+                <td>Chicago State</td>
+                <td>343</td>
+                <td>74.7002</td>
+                <td>3</td>
+                <td>0.2020</td>
+            </tr>
+        
+            <tr>
+                <td>SMU</td>
+                <td>285</td>
+                <td>160.1557</td>
+                <td>4</td>
+                <td>0.2094</td>
+            </tr>
+        
+            <tr>
+                <td>Jackson State</td>
+                <td>339</td>
+                <td>116.0048</td>
+                <td>5</td>
+                <td>0.2115</td>
+            </tr>
+        
+            <tr>
+                <td>Texas A&M</td>
+                <td>322</td>
+                <td>144.5298</td>
+                <td>6</td>
+                <td>0.2159</td>
+            </tr>
+        
+            <tr>
+                <td>Xavier</td>
+                <td>292</td>
+                <td>156.1073</td>
+                <td>7</td>
+                <td>0.2185</td>
+            </tr>
+        
+            <tr>
+                <td>DePaul</td>
+                <td>334</td>
+                <td>132.7069</td>
+                <td>8</td>
+                <td>0.2208</td>
+            </tr>
+        
+            <tr>
+                <td>Baylor</td>
+                <td>130</td>
+                <td>202.7772</td>
+                <td>9</td>
+                <td>0.2228</td>
+            </tr>
+        
+            <tr>
+                <td>Louisville</td>
+                <td>266</td>
+                <td>167.8130</td>
+                <td>10</td>
+                <td>0.2277</td>
+            </tr>
+        
+            <tr>
+                <td>North Texas</td>
+                <td>274</td>
+                <td>165.7081</td>
+                <td>11</td>
+                <td>0.2281</td>
+            </tr>
+        
+            <tr>
+                <td>Fordham</td>
+                <td>340</td>
+                <td>115.8717</td>
+                <td>12</td>
+                <td>0.2291</td>
+            </tr>
+        
+            <tr>
+                <td>Villanova</td>
+                <td>234</td>
+                <td>178.8326</td>
+                <td>13</td>
+                <td>0.2305</td>
+            </tr>
+        
+            <tr>
+                <td>Delaware</td>
+                <td>337</td>
+                <td>126.1592</td>
+                <td>14</td>
+                <td>0.2324</td>
+            </tr>
+        
+            <tr>
+                <td>Saint Louis</td>
+                <td>204</td>
+                <td>186.2105</td>
+                <td>15</td>
+                <td>0.2380</td>
+            </tr>
+        
+            <tr>
+                <td>North Carolina Central</td>
+                <td>338</td>
+                <td>117.8102</td>
+                <td>16</td>
+                <td>0.2394</td>
+            </tr>
+        
+            <tr>
+                <td>St. Bonaventure</td>
+                <td>174</td>
+                <td>193.8051</td>
+                <td>17</td>
+                <td>0.2397</td>
+            </tr>
+        
+            <tr>
+                <td>Maine</td>
+                <td>341</td>
+                <td>106.3881</td>
+                <td>18</td>
+                <td>0.2402</td>
+            </tr>
+        
+            <tr>
+                <td>UC Riverside</td>
+                <td>324</td>
+                <td>142.6176</td>
+                <td>19</td>
+                <td>0.2413</td>
+            </tr>
+        
+            <tr>
+                <td>Clemson</td>
+                <td>212</td>
+                <td>184.3490</td>
+                <td>20</td>
+                <td>0.2423</td>
+            </tr>
+        
+            <tr>
+                <td>Temple</td>
+                <td>275</td>
+                <td>164.8592</td>
+                <td>21</td>
+                <td>0.2427</td>
+            </tr>
+        
+            <tr>
+                <td>Santa Clara</td>
+                <td>298</td>
+                <td>152.7257</td>
+                <td>22</td>
+                <td>0.2427</td>
+            </tr>
+        
+            <tr>
+                <td>William & Mary</td>
+                <td>335</td>
+                <td>132.5685</td>
+                <td>23</td>
+                <td>0.2441</td>
+            </tr>
+        
+            <tr>
+                <td>Virginia</td>
+                <td>184</td>
+                <td>191.6113</td>
+                <td>24</td>
+                <td>0.2442</td>
+            </tr>
+        
+            <tr>
+                <td>SIU Edwardsville</td>
+                <td>329</td>
+                <td>136.7462</td>
+                <td>25</td>
+                <td>0.2443</td>
+            </tr>
+        
+            <tr>
+                <td>Oregon</td>
+                <td>186</td>
+                <td>190.9022</td>
+                <td>26</td>
+                <td>0.2451</td>
+            </tr>
+        
+            <tr>
+                <td>Prairie View A&M</td>
+                <td>317</td>
+                <td>146.8282</td>
+                <td>27</td>
+                <td>0.2455</td>
+            </tr>
+        
+            <tr>
+                <td>Florida Atlantic</td>
+                <td>287</td>
+                <td>159.1259</td>
+                <td>28</td>
+                <td>0.2456</td>
+            </tr>
+        
+            <tr>
+                <td>Pacific</td>
+                <td>312</td>
+                <td>148.0027</td>
+                <td>29</td>
+                <td>0.2472</td>
+            </tr>
+        
+            <tr>
+                <td>Michigan</td>
+                <td>46</td>
+                <td>224.8332</td>
+                <td>30</td>
+                <td>0.2494</td>
+            </tr>
+        
+            <tr>
+                <td>Western Kentucky</td>
+                <td>254</td>
+                <td>172.4689</td>
+                <td>31</td>
+                <td>0.2499</td>
+            </tr>
+        
+            <tr>
+                <td>Western Michigan</td>
+                <td>328</td>
+                <td>138.7823</td>
+                <td>32</td>
+                <td>0.2502</td>
+            </tr>
+        
+            <tr>
+                <td>Texas Tech</td>
+                <td>124</td>
+                <td>204.8150</td>
+                <td>33</td>
+                <td>0.2506</td>
+            </tr>
+        
+            <tr>
+                <td>Eastern Michigan</td>
+                <td>326</td>
+                <td>141.2570</td>
+                <td>34</td>
+                <td>0.2511</td>
+            </tr>
+        
+            <tr>
+                <td>UConn</td>
+                <td>147</td>
+                <td>199.4055</td>
+                <td>35</td>
+                <td>0.2521</td>
+            </tr>
+        
+            <tr>
+                <td>American University</td>
+                <td>309</td>
+                <td>148.4195</td>
+                <td>36</td>
+                <td>0.2529</td>
+            </tr>
+        
+            <tr>
+                <td>Virginia Tech</td>
+                <td>194</td>
+                <td>188.5320</td>
+                <td>37</td>
+                <td>0.2531</td>
+            </tr>
+        
+            <tr>
+                <td>East Carolina</td>
+                <td>261</td>
+                <td>169.3870</td>
+                <td>38</td>
+                <td>0.2536</td>
+            </tr>
+        
+            <tr>
+                <td>Saint Mary's</td>
+                <td>251</td>
+                <td>173.2138</td>
+                <td>39</td>
+                <td>0.2537</td>
+            </tr>
+        
+            <tr>
+                <td>Loyola Marymount</td>
+                <td>256</td>
+                <td>171.1654</td>
+                <td>40</td>
+                <td>0.2540</td>
+            </tr>
+        
+            <tr>
+                <td>Houston</td>
+                <td>30</td>
+                <td>231.9435</td>
+                <td>41</td>
+                <td>0.2546</td>
+            </tr>
+        
+            <tr>
+                <td>Iona</td>
+                <td>327</td>
+                <td>139.7930</td>
+                <td>42</td>
+                <td>0.2549</td>
+            </tr>
+        
+            <tr>
+                <td>Cal State Fullerton</td>
+                <td>336</td>
+                <td>129.0854</td>
+                <td>43</td>
+                <td>0.2567</td>
+            </tr>
+        
+            <tr>
+                <td>Missouri State</td>
+                <td>203</td>
+                <td>186.3349</td>
+                <td>44</td>
+                <td>0.2578</td>
+            </tr>
+        
+            <tr>
+                <td>VCU</td>
+                <td>157</td>
+                <td>197.9075</td>
+                <td>45</td>
+                <td>0.2578</td>
+            </tr>
+        
+            <tr>
+                <td>Drexel</td>
+                <td>296</td>
+                <td>154.5010</td>
+                <td>46</td>
+                <td>0.2589</td>
+            </tr>
+        
+            <tr>
+                <td>UAlbany</td>
+                <td>306</td>
+                <td>149.7284</td>
+                <td>47</td>
+                <td>0.2600</td>
+            </tr>
+        
+            <tr>
+                <td>Tennessee</td>
+                <td>94</td>
+                <td>210.1638</td>
+                <td>48</td>
+                <td>0.2604</td>
+            </tr>
+        
+            <tr>
+                <td>Texas</td>
+                <td>107</td>
+                <td>207.0398</td>
+                <td>49</td>
+                <td>0.2605</td>
+            </tr>
+        
+            <tr>
+                <td>Richmond</td>
+                <td>177</td>
+                <td>193.4100</td>
+                <td>50</td>
+                <td>0.2612</td>
+            </tr>
+        
+            <tr>
+                <td>Liberty</td>
+                <td>247</td>
+                <td>174.6770</td>
+                <td>51</td>
+                <td>0.2615</td>
+            </tr>
+        
+            <tr>
+                <td>South Florida</td>
+                <td>264</td>
+                <td>168.3828</td>
+                <td>52</td>
+                <td>0.2630</td>
+            </tr>
+        
+            <tr>
+                <td>Georgia State</td>
+                <td>233</td>
+                <td>179.0609</td>
+                <td>53</td>
+                <td>0.2632</td>
+            </tr>
+        
+            <tr>
+                <td>Elon</td>
+                <td>295</td>
+                <td>154.6290</td>
+                <td>54</td>
+                <td>0.2638</td>
+            </tr>
+        
+            <tr>
+                <td>Ohio</td>
+                <td>195</td>
+                <td>188.4122</td>
+                <td>55</td>
+                <td>0.2646</td>
+            </tr>
+        
+            <tr>
+                <td>Presbyterian</td>
+                <td>320</td>
+                <td>144.8090</td>
+                <td>56</td>
+                <td>0.2649</td>
+            </tr>
+        
+            <tr>
+                <td>Merrimack</td>
+                <td>323</td>
+                <td>143.1511</td>
+                <td>57</td>
+                <td>0.2650</td>
+            </tr>
+        
+            <tr>
+                <td>USC</td>
+                <td>58</td>
+                <td>220.3872</td>
+                <td>58</td>
+                <td>0.2650</td>
+            </tr>
+        
+            <tr>
+                <td>Mount St. Mary's</td>
+                <td>310</td>
+                <td>148.3730</td>
+                <td>59</td>
+                <td>0.2653</td>
+            </tr>
+        
+            <tr>
+                <td>Alabama A&M</td>
+                <td>331</td>
+                <td>135.7064</td>
+                <td>60</td>
+                <td>0.2654</td>
+            </tr>
+        
+            <tr>
+                <td>Ole Miss</td>
+                <td>129</td>
+                <td>202.9852</td>
+                <td>61</td>
+                <td>0.2657</td>
+            </tr>
+        
+            <tr>
+                <td>Long Beach State</td>
+                <td>325</td>
+                <td>142.4175</td>
+                <td>62</td>
+                <td>0.2658</td>
+            </tr>
+        
+            <tr>
+                <td>Portland State</td>
+                <td>308</td>
+                <td>149.1447</td>
+                <td>63</td>
+                <td>0.2659</td>
+            </tr>
+        
+            <tr>
+                <td>Memphis</td>
+                <td>65</td>
+                <td>216.0575</td>
+                <td>64</td>
+                <td>0.2663</td>
+            </tr>
+        
+            <tr>
+                <td>Nebraska</td>
+                <td>169</td>
+                <td>194.3633</td>
+                <td>65</td>
+                <td>0.2664</td>
+            </tr>
+        
+            <tr>
+                <td>Northeastern</td>
+                <td>293</td>
+                <td>155.3943</td>
+                <td>66</td>
+                <td>0.2666</td>
+            </tr>
+        
+            <tr>
+                <td>Valparaiso</td>
+                <td>257</td>
+                <td>170.4457</td>
+                <td>67</td>
+                <td>0.2668</td>
+            </tr>
+        
+            <tr>
+                <td>Massachusetts</td>
+                <td>208</td>
+                <td>185.6109</td>
+                <td>68</td>
+                <td>0.2675</td>
+            </tr>
+        
+            <tr>
+                <td>Sacramento State</td>
+                <td>307</td>
+                <td>149.4758</td>
+                <td>69</td>
+                <td>0.2677</td>
+            </tr>
+        
+            <tr>
+                <td>UCF</td>
+                <td>181</td>
+                <td>192.1981</td>
+                <td>70</td>
+                <td>0.2679</td>
+            </tr>
+        
+            <tr>
+                <td>George Washington</td>
+                <td>276</td>
+                <td>164.4465</td>
+                <td>71</td>
+                <td>0.2681</td>
+            </tr>
+        
+            <tr>
+                <td>Idaho State</td>
+                <td>280</td>
+                <td>163.6213</td>
+                <td>72</td>
+                <td>0.2688</td>
+            </tr>
+        
+            <tr>
+                <td>Wisconsin</td>
+                <td>41</td>
+                <td>227.7589</td>
+                <td>73</td>
+                <td>0.2693</td>
+            </tr>
+        
+            <tr>
+                <td>Penn State</td>
+                <td>72</td>
+                <td>213.9081</td>
+                <td>74</td>
+                <td>0.2697</td>
+            </tr>
+        
+            <tr>
+                <td>Kentucky</td>
+                <td>156</td>
+                <td>198.3697</td>
+                <td>75</td>
+                <td>0.2698</td>
+            </tr>
+        
+            <tr>
+                <td>Marshall</td>
+                <td>189</td>
+                <td>190.0309</td>
+                <td>76</td>
+                <td>0.2700</td>
+            </tr>
+        
+            <tr>
+                <td>UT Rio Grande Valley</td>
+                <td>332</td>
+                <td>134.3357</td>
+                <td>77</td>
+                <td>0.2702</td>
+            </tr>
+        
+            <tr>
+                <td>Tulsa</td>
+                <td>179</td>
+                <td>192.4666</td>
+                <td>78</td>
+                <td>0.2707</td>
+            </tr>
+        
+            <tr>
+                <td>Canisius</td>
+                <td>330</td>
+                <td>136.2745</td>
+                <td>79</td>
+                <td>0.2709</td>
+            </tr>
+        
+            <tr>
+                <td>Bucknell</td>
+                <td>291</td>
+                <td>156.3153</td>
+                <td>80</td>
+                <td>0.2711</td>
+            </tr>
+        
+            <tr>
+                <td>Duquesne</td>
+                <td>198</td>
+                <td>187.9577</td>
+                <td>81</td>
+                <td>0.2716</td>
+            </tr>
+        
+            <tr>
+                <td>Wichita State</td>
+                <td>163</td>
+                <td>196.9967</td>
+                <td>82</td>
+                <td>0.2717</td>
+            </tr>
+        
+            <tr>
+                <td>Colorado</td>
+                <td>53</td>
+                <td>222.1808</td>
+                <td>83</td>
+                <td>0.2718</td>
+            </tr>
+        
+            <tr>
+                <td>Eastern Washington</td>
+                <td>228</td>
+                <td>179.7402</td>
+                <td>84</td>
+                <td>0.2725</td>
+            </tr>
+        
+            <tr>
+                <td>Loyola Chicago</td>
+                <td>22</td>
+                <td>237.0970</td>
+                <td>85</td>
+                <td>0.2725</td>
+            </tr>
+        
+            <tr>
+                <td>Utah</td>
+                <td>152</td>
+                <td>198.7309</td>
+                <td>86</td>
+                <td>0.2737</td>
+            </tr>
+        
+            <tr>
+                <td>Middle Tennessee</td>
+                <td>294</td>
+                <td>154.8047</td>
+                <td>87</td>
+                <td>0.2742</td>
+            </tr>
+        
+            <tr>
+                <td>East Tennessee State</td>
+                <td>232</td>
+                <td>179.0630</td>
+                <td>88</td>
+                <td>0.2742</td>
+            </tr>
+        
+            <tr>
+                <td>Arizona State</td>
+                <td>197</td>
+                <td>188.2269</td>
+                <td>89</td>
+                <td>0.2747</td>
+            </tr>
+        
+            <tr>
+                <td>San Diego State</td>
+                <td>78</td>
+                <td>213.2680</td>
+                <td>90</td>
+                <td>0.2747</td>
+            </tr>
+        
+            <tr>
+                <td>Pittsburgh</td>
+                <td>173</td>
+                <td>193.8151</td>
+                <td>91</td>
+                <td>0.2750</td>
+            </tr>
+        
+            <tr>
+                <td>App State</td>
+                <td>239</td>
+                <td>177.5581</td>
+                <td>92</td>
+                <td>0.2751</td>
+            </tr>
+        
+            <tr>
+                <td>Towson</td>
+                <td>318</td>
+                <td>146.4723</td>
+                <td>93</td>
+                <td>0.2752</td>
+            </tr>
+        
+            <tr>
+                <td>UC Davis</td>
+                <td>302</td>
+                <td>151.2314</td>
+                <td>94</td>
+                <td>0.2757</td>
+            </tr>
+        
+            <tr>
+                <td>Arkansas State</td>
+                <td>269</td>
+                <td>166.6724</td>
+                <td>95</td>
+                <td>0.2761</td>
+            </tr>
+        
+            <tr>
+                <td>Siena</td>
+                <td>314</td>
+                <td>147.7093</td>
+                <td>96</td>
+                <td>0.2763</td>
+            </tr>
+        
+            <tr>
+                <td>Boston College</td>
+                <td>243</td>
+                <td>175.7399</td>
+                <td>97</td>
+                <td>0.2763</td>
+            </tr>
+        
+            <tr>
+                <td>Florida State</td>
+                <td>55</td>
+                <td>221.2732</td>
+                <td>98</td>
+                <td>0.2765</td>
+            </tr>
+        
+            <tr>
+                <td>Davidson</td>
+                <td>96</td>
+                <td>209.7292</td>
+                <td>99</td>
+                <td>0.2767</td>
+            </tr>
+        
+            <tr>
+                <td>Loyola Maryland</td>
+                <td>268</td>
+                <td>167.4078</td>
+                <td>100</td>
+                <td>0.2771</td>
+            </tr>
+        
+            <tr>
+                <td>James Madison</td>
+                <td>250</td>
+                <td>173.3703</td>
+                <td>101</td>
+                <td>0.2771</td>
+            </tr>
+        
+            <tr>
+                <td>Utah State</td>
+                <td>102</td>
+                <td>207.9471</td>
+                <td>102</td>
+                <td>0.2772</td>
+            </tr>
+        
+            <tr>
+                <td>Michigan State</td>
+                <td>83</td>
+                <td>212.3140</td>
+                <td>103</td>
+                <td>0.2774</td>
+            </tr>
+        
+            <tr>
+                <td>Kansas City</td>
+                <td>207</td>
+                <td>185.7218</td>
+                <td>104</td>
+                <td>0.2775</td>
+            </tr>
+        
+            <tr>
+                <td>UNC Wilmington</td>
+                <td>290</td>
+                <td>156.8642</td>
+                <td>105</td>
+                <td>0.2775</td>
+            </tr>
+        
+            <tr>
+                <td>Texas State</td>
+                <td>242</td>
+                <td>176.1081</td>
+                <td>106</td>
+                <td>0.2776</td>
+            </tr>
+        
+            <tr>
+                <td>TCU</td>
+                <td>201</td>
+                <td>187.1618</td>
+                <td>107</td>
+                <td>0.2777</td>
+            </tr>
+        
+            <tr>
+                <td>Fresno State</td>
+                <td>265</td>
+                <td>167.8582</td>
+                <td>108</td>
+                <td>0.2779</td>
+            </tr>
+        
+            <tr>
+                <td>Florida</td>
+                <td>98</td>
+                <td>208.6311</td>
+                <td>109</td>
+                <td>0.2784</td>
+            </tr>
+        
+            <tr>
+                <td>Gardner-Webb</td>
+                <td>238</td>
+                <td>178.0286</td>
+                <td>110</td>
+                <td>0.2784</td>
+            </tr>
+        
+            <tr>
+                <td>Butler</td>
+                <td>178</td>
+                <td>192.6934</td>
+                <td>111</td>
+                <td>0.2794</td>
+            </tr>
+        
+            <tr>
+                <td>NC State</td>
+                <td>153</td>
+                <td>198.6722</td>
+                <td>112</td>
+                <td>0.2795</td>
+            </tr>
+        
+            <tr>
+                <td>Colorado State</td>
+                <td>145</td>
+                <td>199.8776</td>
+                <td>113</td>
+                <td>0.2799</td>
+            </tr>
+        
+            <tr>
+                <td>UCLA</td>
+                <td>63</td>
+                <td>216.7194</td>
+                <td>114</td>
+                <td>0.2807</td>
+            </tr>
+        
+            <tr>
+                <td>Arizona</td>
+                <td>89</td>
+                <td>211.0196</td>
+                <td>115</td>
+                <td>0.2808</td>
+            </tr>
+        
+            <tr>
+                <td>Maryland</td>
+                <td>57</td>
+                <td>220.4148</td>
+                <td>116</td>
+                <td>0.2810</td>
+            </tr>
+        
+            <tr>
+                <td>Illinois</td>
+                <td>7</td>
+                <td>261.0708</td>
+                <td>117</td>
+                <td>0.2815</td>
+            </tr>
+        
+            <tr>
+                <td>Bradley</td>
+                <td>150</td>
+                <td>198.7548</td>
+                <td>118</td>
+                <td>0.2819</td>
+            </tr>
+        
+            <tr>
+                <td>Winthrop</td>
+                <td>137</td>
+                <td>201.3050</td>
+                <td>119</td>
+                <td>0.2825</td>
+            </tr>
+        
+            <tr>
+                <td>New Mexico State</td>
+                <td>311</td>
+                <td>148.1523</td>
+                <td>120</td>
+                <td>0.2825</td>
+            </tr>
+        
+            <tr>
+                <td>Charleston Southern</td>
+                <td>316</td>
+                <td>147.0669</td>
+                <td>121</td>
+                <td>0.2837</td>
+            </tr>
+        
+            <tr>
+                <td>Miami (OH)</td>
+                <td>240</td>
+                <td>177.4740</td>
+                <td>122</td>
+                <td>0.2842</td>
+            </tr>
+        
+            <tr>
+                <td>Duke</td>
+                <td>101</td>
+                <td>207.9945</td>
+                <td>123</td>
+                <td>0.2843</td>
+            </tr>
+        
+            <tr>
+                <td>Samford</td>
+                <td>258</td>
+                <td>170.4289</td>
+                <td>124</td>
+                <td>0.2848</td>
+            </tr>
+        
+            <tr>
+                <td>Indiana</td>
+                <td>49</td>
+                <td>223.9964</td>
+                <td>125</td>
+                <td>0.2854</td>
+            </tr>
+        
+            <tr>
+                <td>Georgia Tech</td>
+                <td>73</td>
+                <td>213.7746</td>
+                <td>126</td>
+                <td>0.2854</td>
+            </tr>
+        
+            <tr>
+                <td>Sacred Heart</td>
+                <td>313</td>
+                <td>147.9700</td>
+                <td>127</td>
+                <td>0.2857</td>
+            </tr>
+        
+            <tr>
+                <td>Rutgers</td>
+                <td>37</td>
+                <td>228.9649</td>
+                <td>128</td>
+                <td>0.2858</td>
+            </tr>
+        
+            <tr>
+                <td>Oklahoma</td>
+                <td>51</td>
+                <td>222.5312</td>
+                <td>129</td>
+                <td>0.2859</td>
+            </tr>
+        
+            <tr>
+                <td>West Virginia</td>
+                <td>39</td>
+                <td>228.7898</td>
+                <td>130</td>
+                <td>0.2872</td>
+            </tr>
+        
+            <tr>
+                <td>George Mason</td>
+                <td>127</td>
+                <td>204.1124</td>
+                <td>131</td>
+                <td>0.2874</td>
+            </tr>
+        
+            <tr>
+                <td>Northern Arizona</td>
+                <td>297</td>
+                <td>152.7919</td>
+                <td>132</td>
+                <td>0.2885</td>
+            </tr>
+        
+            <tr>
+                <td>Georgetown</td>
+                <td>104</td>
+                <td>207.7754</td>
+                <td>133</td>
+                <td>0.2887</td>
+            </tr>
+        
+            <tr>
+                <td>Alcorn State</td>
+                <td>315</td>
+                <td>147.6861</td>
+                <td>134</td>
+                <td>0.2890</td>
+            </tr>
+        
+            <tr>
+                <td>Oregon State</td>
+                <td>64</td>
+                <td>216.5103</td>
+                <td>135</td>
+                <td>0.2891</td>
+            </tr>
+        
+            <tr>
+                <td>Stanford</td>
+                <td>117</td>
+                <td>205.7414</td>
+                <td>136</td>
+                <td>0.2891</td>
+            </tr>
+        
+            <tr>
+                <td>UTEP</td>
+                <td>220</td>
+                <td>182.5020</td>
+                <td>137</td>
+                <td>0.2898</td>
+            </tr>
+        
+            <tr>
+                <td>Jacksonville State</td>
+                <td>187</td>
+                <td>190.4536</td>
+                <td>138</td>
+                <td>0.2899</td>
+            </tr>
+        
+            <tr>
+                <td>Southern Illinois</td>
+                <td>191</td>
+                <td>189.4137</td>
+                <td>139</td>
+                <td>0.2907</td>
+            </tr>
+        
+            <tr>
+                <td>Indiana State</td>
+                <td>132</td>
+                <td>202.4158</td>
+                <td>140</td>
+                <td>0.2909</td>
+            </tr>
+        
+            <tr>
+                <td>Vanderbilt</td>
+                <td>146</td>
+                <td>199.5495</td>
+                <td>141</td>
+                <td>0.2921</td>
+            </tr>
+        
+            <tr>
+                <td>UNC Greensboro</td>
+                <td>158</td>
+                <td>197.5666</td>
+                <td>142</td>
+                <td>0.2922</td>
+            </tr>
+        
+            <tr>
+                <td>Purdue</td>
+                <td>18</td>
+                <td>240.2383</td>
+                <td>143</td>
+                <td>0.2923</td>
+            </tr>
+        
+            <tr>
+                <td>Iowa State</td>
+                <td>227</td>
+                <td>180.0227</td>
+                <td>144</td>
+                <td>0.2928</td>
+            </tr>
+        
+            <tr>
+                <td>Binghamton</td>
+                <td>321</td>
+                <td>144.6796</td>
+                <td>145</td>
+                <td>0.2929</td>
+            </tr>
+        
+            <tr>
+                <td>New Mexico</td>
+                <td>277</td>
+                <td>164.0113</td>
+                <td>146</td>
+                <td>0.2932</td>
+            </tr>
+        
+            <tr>
+                <td>Tulane</td>
+                <td>171</td>
+                <td>193.9871</td>
+                <td>147</td>
+                <td>0.2934</td>
+            </tr>
+        
+            <tr>
+                <td>Grand Canyon</td>
+                <td>221</td>
+                <td>182.4848</td>
+                <td>148</td>
+                <td>0.2943</td>
+            </tr>
+        
+            <tr>
+                <td>Northwestern</td>
+                <td>34</td>
+                <td>230.2814</td>
+                <td>149</td>
+                <td>0.2946</td>
+            </tr>
+        
+            <tr>
+                <td>Colgate</td>
+                <td>59</td>
+                <td>220.0471</td>
+                <td>150</td>
+                <td>0.2951</td>
+            </tr>
+        
+            <tr>
+                <td>Kansas</td>
+                <td>32</td>
+                <td>231.3412</td>
+                <td>151</td>
+                <td>0.2952</td>
+            </tr>
+        
+            <tr>
+                <td>Northern Iowa</td>
+                <td>160</td>
+                <td>197.3350</td>
+                <td>152</td>
+                <td>0.2955</td>
+            </tr>
+        
+            <tr>
+                <td>Ohio State</td>
+                <td>11</td>
+                <td>249.6609</td>
+                <td>153</td>
+                <td>0.2956</td>
+            </tr>
+        
+            <tr>
+                <td>Detroit Mercy</td>
+                <td>216</td>
+                <td>183.4643</td>
+                <td>154</td>
+                <td>0.2957</td>
+            </tr>
+        
+            <tr>
+                <td>Florida Gulf Coast</td>
+                <td>271</td>
+                <td>166.3299</td>
+                <td>155</td>
+                <td>0.2978</td>
+            </tr>
+        
+            <tr>
+                <td>Drake</td>
+                <td>24</td>
+                <td>236.1358</td>
+                <td>156</td>
+                <td>0.2978</td>
+            </tr>
+        
+            <tr>
+                <td>UNC Asheville</td>
+                <td>241</td>
+                <td>176.5810</td>
+                <td>157</td>
+                <td>0.2982</td>
+            </tr>
+        
+            <tr>
+                <td>Holy Cross</td>
+                <td>248</td>
+                <td>174.5914</td>
+                <td>158</td>
+                <td>0.2985</td>
+            </tr>
+        
+            <tr>
+                <td>South Carolina State</td>
+                <td>333</td>
+                <td>132.7193</td>
+                <td>159</td>
+                <td>0.2985</td>
+            </tr>
+        
+            <tr>
+                <td>Nevada</td>
+                <td>115</td>
+                <td>206.3387</td>
+                <td>160</td>
+                <td>0.2985</td>
+            </tr>
+        
+            <tr>
+                <td>Saint Joseph's</td>
+                <td>231</td>
+                <td>179.4274</td>
+                <td>161</td>
+                <td>0.2988</td>
+            </tr>
+        
+            <tr>
+                <td>Washington State</td>
+                <td>80</td>
+                <td>212.9127</td>
+                <td>162</td>
+                <td>0.2996</td>
+            </tr>
+        
+            <tr>
+                <td>Gonzaga</td>
+                <td>5</td>
+                <td>263.6194</td>
+                <td>163</td>
+                <td>0.3001</td>
+            </tr>
+        
+            <tr>
+                <td>Wake Forest</td>
+                <td>205</td>
+                <td>186.0722</td>
+                <td>164</td>
+                <td>0.3008</td>
+            </tr>
+        
+            <tr>
+                <td>Northern Colorado</td>
+                <td>236</td>
+                <td>178.5064</td>
+                <td>165</td>
+                <td>0.3010</td>
+            </tr>
+        
+            <tr>
+                <td>BYU</td>
+                <td>60</td>
+                <td>219.2155</td>
+                <td>166</td>
+                <td>0.3011</td>
+            </tr>
+        
+            <tr>
+                <td>Furman</td>
+                <td>88</td>
+                <td>211.3192</td>
+                <td>167</td>
+                <td>0.3011</td>
+            </tr>
+        
+            <tr>
+                <td>Murray State</td>
+                <td>151</td>
+                <td>198.7485</td>
+                <td>168</td>
+                <td>0.3013</td>
+            </tr>
+        
+            <tr>
+                <td>UMass Lowell</td>
+                <td>255</td>
+                <td>171.2720</td>
+                <td>169</td>
+                <td>0.3014</td>
+            </tr>
+        
+            <tr>
+                <td>Charlotte</td>
+                <td>213</td>
+                <td>184.3169</td>
+                <td>170</td>
+                <td>0.3016</td>
+            </tr>
+        
+            <tr>
+                <td>Wofford</td>
+                <td>135</td>
+                <td>201.5440</td>
+                <td>171</td>
+                <td>0.3021</td>
+            </tr>
+        
+            <tr>
+                <td>UIC</td>
+                <td>262</td>
+                <td>168.6430</td>
+                <td>172</td>
+                <td>0.3021</td>
+            </tr>
+        
+            <tr>
+                <td>UNLV</td>
+                <td>161</td>
+                <td>197.2875</td>
+                <td>173</td>
+                <td>0.3021</td>
+            </tr>
+        
+            <tr>
+                <td>Texas A&M-Corpus Christi</td>
+                <td>286</td>
+                <td>159.3331</td>
+                <td>174</td>
+                <td>0.3024</td>
+            </tr>
+        
+            <tr>
+                <td>Incarnate Word</td>
+                <td>283</td>
+                <td>161.4405</td>
+                <td>175</td>
+                <td>0.3026</td>
+            </tr>
+        
+            <tr>
+                <td>North Carolina</td>
+                <td>26</td>
+                <td>234.3811</td>
+                <td>176</td>
+                <td>0.3027</td>
+            </tr>
+        
+            <tr>
+                <td>San José State</td>
+                <td>299</td>
+                <td>152.3398</td>
+                <td>177</td>
+                <td>0.3028</td>
+            </tr>
+        
+            <tr>
+                <td>LSU</td>
+                <td>16</td>
+                <td>242.0468</td>
+                <td>178</td>
+                <td>0.3031</td>
+            </tr>
+        
+            <tr>
+                <td>Ball State</td>
+                <td>175</td>
+                <td>193.7203</td>
+                <td>179</td>
+                <td>0.3033</td>
+            </tr>
+        
+            <tr>
+                <td>Abilene Christian</td>
+                <td>66</td>
+                <td>215.8351</td>
+                <td>180</td>
+                <td>0.3037</td>
+            </tr>
+        
+            <tr>
+                <td>South Carolina</td>
+                <td>139</td>
+                <td>200.8721</td>
+                <td>181</td>
+                <td>0.3048</td>
+            </tr>
+        
+            <tr>
+                <td>Quinnipiac</td>
+                <td>305</td>
+                <td>149.9981</td>
+                <td>182</td>
+                <td>0.3048</td>
+            </tr>
+        
+            <tr>
+                <td>Seattle U</td>
+                <td>300</td>
+                <td>152.3019</td>
+                <td>183</td>
+                <td>0.3049</td>
+            </tr>
+        
+            <tr>
+                <td>UAB</td>
+                <td>56</td>
+                <td>220.9529</td>
+                <td>184</td>
+                <td>0.3049</td>
+            </tr>
+        
+            <tr>
+                <td>Milwaukee</td>
+                <td>235</td>
+                <td>178.7200</td>
+                <td>185</td>
+                <td>0.3050</td>
+            </tr>
+        
+            <tr>
+                <td>Bryant</td>
+                <td>237</td>
+                <td>178.2092</td>
+                <td>186</td>
+                <td>0.3052</td>
+            </tr>
+        
+            <tr>
+                <td>Arkansas</td>
+                <td>13</td>
+                <td>246.6139</td>
+                <td>187</td>
+                <td>0.3053</td>
+            </tr>
+        
+            <tr>
+                <td>Southern</td>
+                <td>260</td>
+                <td>169.9589</td>
+                <td>188</td>
+                <td>0.3057</td>
+            </tr>
+        
+            <tr>
+                <td>Weber State</td>
+                <td>136</td>
+                <td>201.3860</td>
+                <td>189</td>
+                <td>0.3057</td>
+            </tr>
+        
+            <tr>
+                <td>Stephen F. Austin</td>
+                <td>168</td>
+                <td>194.4968</td>
+                <td>190</td>
+                <td>0.3058</td>
+            </tr>
+        
+            <tr>
+                <td>Navy</td>
+                <td>164</td>
+                <td>196.9560</td>
+                <td>191</td>
+                <td>0.3058</td>
+            </tr>
+        
+            <tr>
+                <td>Saint Peter's</td>
+                <td>273</td>
+                <td>165.7697</td>
+                <td>192</td>
+                <td>0.3061</td>
+            </tr>
+        
+            <tr>
+                <td>North Alabama</td>
+                <td>272</td>
+                <td>166.0411</td>
+                <td>193</td>
+                <td>0.3064</td>
+            </tr>
+        
+            <tr>
+                <td>Northern Illinois</td>
+                <td>278</td>
+                <td>163.9307</td>
+                <td>194</td>
+                <td>0.3065</td>
+            </tr>
+        
+            <tr>
+                <td>Cal Poly</td>
+                <td>289</td>
+                <td>157.9948</td>
+                <td>195</td>
+                <td>0.3066</td>
+            </tr>
+        
+            <tr>
+                <td>Kent State</td>
+                <td>100</td>
+                <td>208.0032</td>
+                <td>196</td>
+                <td>0.3068</td>
+            </tr>
+        
+            <tr>
+                <td>Evansville</td>
+                <td>154</td>
+                <td>198.5216</td>
+                <td>197</td>
+                <td>0.3070</td>
+            </tr>
+        
+            <tr>
+                <td>Southeast Missouri State</td>
+                <td>217</td>
+                <td>183.3923</td>
+                <td>198</td>
+                <td>0.3070</td>
+            </tr>
+        
+            <tr>
+                <td>Boise State</td>
+                <td>45</td>
+                <td>224.9936</td>
+                <td>199</td>
+                <td>0.3076</td>
+            </tr>
+        
+            <tr>
+                <td>Syracuse</td>
+                <td>36</td>
+                <td>229.0783</td>
+                <td>200</td>
+                <td>0.3079</td>
+            </tr>
+        
+            <tr>
+                <td>Southern Miss</td>
+                <td>209</td>
+                <td>185.5843</td>
+                <td>201</td>
+                <td>0.3092</td>
+            </tr>
+        
+            <tr>
+                <td>Cincinnati</td>
+                <td>71</td>
+                <td>214.2347</td>
+                <td>202</td>
+                <td>0.3097</td>
+            </tr>
+        
+            <tr>
+                <td>Troy</td>
+                <td>230</td>
+                <td>179.6758</td>
+                <td>203</td>
+                <td>0.3100</td>
+            </tr>
+        
+            <tr>
+                <td>Notre Dame</td>
+                <td>111</td>
+                <td>206.7589</td>
+                <td>204</td>
+                <td>0.3103</td>
+            </tr>
+        
+            <tr>
+                <td>Old Dominion</td>
+                <td>162</td>
+                <td>197.0517</td>
+                <td>205</td>
+                <td>0.3107</td>
+            </tr>
+        
+            <tr>
+                <td>Lafayette</td>
+                <td>219</td>
+                <td>182.9954</td>
+                <td>206</td>
+                <td>0.3108</td>
+            </tr>
+        
+            <tr>
+                <td>Cal State Northridge</td>
+                <td>279</td>
+                <td>163.8154</td>
+                <td>207</td>
+                <td>0.3108</td>
+            </tr>
+        
+            <tr>
+                <td>NJIT</td>
+                <td>263</td>
+                <td>168.5920</td>
+                <td>208</td>
+                <td>0.3112</td>
+            </tr>
+        
+            <tr>
+                <td>North Florida</td>
+                <td>270</td>
+                <td>166.5638</td>
+                <td>209</td>
+                <td>0.3115</td>
+            </tr>
+        
+            <tr>
+                <td>South Dakota State</td>
+                <td>67</td>
+                <td>215.1590</td>
+                <td>210</td>
+                <td>0.3127</td>
+            </tr>
+        
+            <tr>
+                <td>Louisiana</td>
+                <td>144</td>
+                <td>200.2233</td>
+                <td>211</td>
+                <td>0.3129</td>
+            </tr>
+        
+            <tr>
+                <td>Morehead State</td>
+                <td>76</td>
+                <td>213.3632</td>
+                <td>212</td>
+                <td>0.3129</td>
+            </tr>
+        
+            <tr>
+                <td>Pepperdine</td>
+                <td>112</td>
+                <td>206.5680</td>
+                <td>213</td>
+                <td>0.3129</td>
+            </tr>
+        
+            <tr>
+                <td>Iowa</td>
+                <td>2</td>
+                <td>274.3887</td>
+                <td>214</td>
+                <td>0.3131</td>
+            </tr>
+        
+            <tr>
+                <td>South Dakota</td>
+                <td>103</td>
+                <td>207.8661</td>
+                <td>215</td>
+                <td>0.3135</td>
+            </tr>
+        
+            <tr>
+                <td>Oklahoma State</td>
+                <td>14</td>
+                <td>246.2302</td>
+                <td>216</td>
+                <td>0.3138</td>
+            </tr>
+        
+            <tr>
+                <td>Seton Hall</td>
+                <td>29</td>
+                <td>232.4452</td>
+                <td>217</td>
+                <td>0.3144</td>
+            </tr>
+        
+            <tr>
+                <td>Missouri</td>
+                <td>23</td>
+                <td>236.8964</td>
+                <td>218</td>
+                <td>0.3147</td>
+            </tr>
+        
+            <tr>
+                <td>Bowling Green</td>
+                <td>120</td>
+                <td>205.4175</td>
+                <td>219</td>
+                <td>0.3149</td>
+            </tr>
+        
+            <tr>
+                <td>Providence</td>
+                <td>44</td>
+                <td>225.2800</td>
+                <td>220</td>
+                <td>0.3151</td>
+            </tr>
+        
+            <tr>
+                <td>Akron</td>
+                <td>86</td>
+                <td>211.8001</td>
+                <td>221</td>
+                <td>0.3152</td>
+            </tr>
+        
+            <tr>
+                <td>Marquette</td>
+                <td>42</td>
+                <td>227.7477</td>
+                <td>222</td>
+                <td>0.3153</td>
+            </tr>
+        
+            <tr>
+                <td>Florida A&M</td>
+                <td>252</td>
+                <td>172.6746</td>
+                <td>223</td>
+                <td>0.3153</td>
+            </tr>
+        
+            <tr>
+                <td>Manhattan</td>
+                <td>303</td>
+                <td>151.1051</td>
+                <td>224</td>
+                <td>0.3153</td>
+            </tr>
+        
+            <tr>
+                <td>Mississippi State</td>
+                <td>21</td>
+                <td>237.6417</td>
+                <td>225</td>
+                <td>0.3161</td>
+            </tr>
+        
+            <tr>
+                <td>Oral Roberts</td>
+                <td>82</td>
+                <td>212.5078</td>
+                <td>226</td>
+                <td>0.3161</td>
+            </tr>
+        
+            <tr>
+                <td>Alabama</td>
+                <td>6</td>
+                <td>263.1278</td>
+                <td>227</td>
+                <td>0.3161</td>
+            </tr>
+        
+            <tr>
+                <td>Rice</td>
+                <td>166</td>
+                <td>196.5580</td>
+                <td>228</td>
+                <td>0.3165</td>
+            </tr>
+        
+            <tr>
+                <td>Eastern Kentucky</td>
+                <td>99</td>
+                <td>208.0111</td>
+                <td>229</td>
+                <td>0.3166</td>
+            </tr>
+        
+            <tr>
+                <td>Marist</td>
+                <td>284</td>
+                <td>160.9552</td>
+                <td>230</td>
+                <td>0.3167</td>
+            </tr>
+        
+            <tr>
+                <td>Louisiana Tech</td>
+                <td>43</td>
+                <td>227.1540</td>
+                <td>231</td>
+                <td>0.3168</td>
+            </tr>
+        
+            <tr>
+                <td>Montana State</td>
+                <td>167</td>
+                <td>195.1406</td>
+                <td>232</td>
+                <td>0.3175</td>
+            </tr>
+        
+            <tr>
+                <td>Boston University</td>
+                <td>182</td>
+                <td>191.9057</td>
+                <td>233</td>
+                <td>0.3181</td>
+            </tr>
+        
+            <tr>
+                <td>Buffalo</td>
+                <td>52</td>
+                <td>222.4724</td>
+                <td>234</td>
+                <td>0.3182</td>
+            </tr>
+        
+            <tr>
+                <td>North Dakota State</td>
+                <td>90</td>
+                <td>210.8929</td>
+                <td>235</td>
+                <td>0.3182</td>
+            </tr>
+        
+            <tr>
+                <td>Hartford</td>
+                <td>199</td>
+                <td>187.6208</td>
+                <td>236</td>
+                <td>0.3188</td>
+            </tr>
+        
+            <tr>
+                <td>Vermont</td>
+                <td>105</td>
+                <td>207.4618</td>
+                <td>237</td>
+                <td>0.3191</td>
+            </tr>
+        
+            <tr>
+                <td>Longwood</td>
+                <td>223</td>
+                <td>182.1285</td>
+                <td>238</td>
+                <td>0.3193</td>
+            </tr>
+        
+            <tr>
+                <td>Robert Morris</td>
+                <td>253</td>
+                <td>172.5111</td>
+                <td>239</td>
+                <td>0.3196</td>
+            </tr>
+        
+            <tr>
+                <td>Chattanooga</td>
+                <td>133</td>
+                <td>202.2403</td>
+                <td>240</td>
+                <td>0.3198</td>
+            </tr>
+        
+            <tr>
+                <td>VMI</td>
+                <td>97</td>
+                <td>209.5407</td>
+                <td>241</td>
+                <td>0.3199</td>
+            </tr>
+        
+            <tr>
+                <td>Minnesota</td>
+                <td>12</td>
+                <td>248.0254</td>
+                <td>242</td>
+                <td>0.3202</td>
+            </tr>
+        
+            <tr>
+                <td>Dayton</td>
+                <td>31</td>
+                <td>231.6404</td>
+                <td>243</td>
+                <td>0.3206</td>
+            </tr>
+        
+            <tr>
+                <td>Wyoming</td>
+                <td>134</td>
+                <td>202.1022</td>
+                <td>244</td>
+                <td>0.3213</td>
+            </tr>
+        
+            <tr>
+                <td>Coastal Carolina</td>
+                <td>75</td>
+                <td>213.4675</td>
+                <td>245</td>
+                <td>0.3214</td>
+            </tr>
+        
+            <tr>
+                <td>Texas Southern</td>
+                <td>170</td>
+                <td>194.1933</td>
+                <td>246</td>
+                <td>0.3215</td>
+            </tr>
+        
+            <tr>
+                <td>UT Arlington</td>
+                <td>116</td>
+                <td>206.2467</td>
+                <td>247</td>
+                <td>0.3239</td>
+            </tr>
+        
+            <tr>
+                <td>Stony Brook</td>
+                <td>215</td>
+                <td>183.6194</td>
+                <td>248</td>
+                <td>0.3243</td>
+            </tr>
+        
+            <tr>
+                <td>UT Martin</td>
+                <td>246</td>
+                <td>174.7688</td>
+                <td>249</td>
+                <td>0.3247</td>
+            </tr>
+        
+            <tr>
+                <td>Rhode Island</td>
+                <td>35</td>
+                <td>229.2205</td>
+                <td>250</td>
+                <td>0.3254</td>
+            </tr>
+        
+            <tr>
+                <td>Wagner</td>
+                <td>214</td>
+                <td>183.7509</td>
+                <td>251</td>
+                <td>0.3255</td>
+            </tr>
+        
+            <tr>
+                <td>Northern Kentucky</td>
+                <td>155</td>
+                <td>198.4182</td>
+                <td>252</td>
+                <td>0.3263</td>
+            </tr>
+        
+            <tr>
+                <td>Nicholls</td>
+                <td>125</td>
+                <td>204.6186</td>
+                <td>253</td>
+                <td>0.3265</td>
+            </tr>
+        
+            <tr>
+                <td>McNeese</td>
+                <td>185</td>
+                <td>191.5653</td>
+                <td>254</td>
+                <td>0.3278</td>
+            </tr>
+        
+            <tr>
+                <td>Radford</td>
+                <td>159</td>
+                <td>197.4727</td>
+                <td>255</td>
+                <td>0.3280</td>
+            </tr>
+        
+            <tr>
+                <td>UC Santa Barbara</td>
+                <td>50</td>
+                <td>223.3906</td>
+                <td>256</td>
+                <td>0.3283</td>
+            </tr>
+        
+            <tr>
+                <td>Utah Valley</td>
+                <td>281</td>
+                <td>163.5639</td>
+                <td>257</td>
+                <td>0.3291</td>
+            </tr>
+        
+            <tr>
+                <td>North Carolina A&T</td>
+                <td>222</td>
+                <td>182.2809</td>
+                <td>258</td>
+                <td>0.3292</td>
+            </tr>
+        
+            <tr>
+                <td>Little Rock</td>
+                <td>106</td>
+                <td>207.0835</td>
+                <td>259</td>
+                <td>0.3306</td>
+            </tr>
+        
+            <tr>
+                <td>Niagara</td>
+                <td>259</td>
+                <td>170.3470</td>
+                <td>260</td>
+                <td>0.3310</td>
+            </tr>
+        
+            <tr>
+                <td>Campbell</td>
+                <td>148</td>
+                <td>199.0730</td>
+                <td>261</td>
+                <td>0.3317</td>
+            </tr>
+        
+            <tr>
+                <td>Georgia Southern</td>
+                <td>114</td>
+                <td>206.4637</td>
+                <td>262</td>
+                <td>0.3328</td>
+            </tr>
+        
+            <tr>
+                <td>New Orleans</td>
+                <td>172</td>
+                <td>193.8410</td>
+                <td>263</td>
+                <td>0.3332</td>
+            </tr>
+        
+            <tr>
+                <td>Kansas State</td>
+                <td>70</td>
+                <td>214.3523</td>
+                <td>264</td>
+                <td>0.3333</td>
+            </tr>
+        
+            <tr>
+                <td>Denver</td>
+                <td>245</td>
+                <td>174.9924</td>
+                <td>265</td>
+                <td>0.3340</td>
+            </tr>
+        
+            <tr>
+                <td>Central Arkansas</td>
+                <td>211</td>
+                <td>184.8817</td>
+                <td>266</td>
+                <td>0.3344</td>
+            </tr>
+        
+            <tr>
+                <td>UC Irvine</td>
+                <td>61</td>
+                <td>218.9114</td>
+                <td>267</td>
+                <td>0.3347</td>
+            </tr>
+        
+            <tr>
+                <td>South Carolina Upstate</td>
+                <td>244</td>
+                <td>175.0577</td>
+                <td>268</td>
+                <td>0.3354</td>
+            </tr>
+        
+            <tr>
+                <td>Stetson</td>
+                <td>206</td>
+                <td>185.9669</td>
+                <td>269</td>
+                <td>0.3354</td>
+            </tr>
+        
+            <tr>
+                <td>San Francisco</td>
+                <td>27</td>
+                <td>233.0887</td>
+                <td>270</td>
+                <td>0.3357</td>
+            </tr>
+        
+            <tr>
+                <td>High Point</td>
+                <td>176</td>
+                <td>193.6592</td>
+                <td>271</td>
+                <td>0.3361</td>
+            </tr>
+        
+            <tr>
+                <td>Creighton</td>
+                <td>4</td>
+                <td>269.6593</td>
+                <td>272</td>
+                <td>0.3365</td>
+            </tr>
+        
+            <tr>
+                <td>Army</td>
+                <td>81</td>
+                <td>212.5489</td>
+                <td>273</td>
+                <td>0.3367</td>
+            </tr>
+        
+            <tr>
+                <td>Monmouth</td>
+                <td>196</td>
+                <td>188.3986</td>
+                <td>274</td>
+                <td>0.3385</td>
+            </tr>
+        
+            <tr>
+                <td>Austin Peay</td>
+                <td>85</td>
+                <td>211.8129</td>
+                <td>275</td>
+                <td>0.3386</td>
+            </tr>
+        
+            <tr>
+                <td>St. John's</td>
+                <td>19</td>
+                <td>239.9295</td>
+                <td>276</td>
+                <td>0.3386</td>
+            </tr>
+        
+            <tr>
+                <td>Mercer</td>
+                <td>54</td>
+                <td>221.9069</td>
+                <td>277</td>
+                <td>0.3387</td>
+            </tr>
+        
+            <tr>
+                <td>Cleveland State</td>
+                <td>93</td>
+                <td>210.2792</td>
+                <td>278</td>
+                <td>0.3392</td>
+            </tr>
+        
+            <tr>
+                <td>Grambling</td>
+                <td>225</td>
+                <td>181.7237</td>
+                <td>279</td>
+                <td>0.3395</td>
+            </tr>
+        
+            <tr>
+                <td>California</td>
+                <td>48</td>
+                <td>224.6476</td>
+                <td>280</td>
+                <td>0.3397</td>
+            </tr>
+        
+            <tr>
+                <td>UMBC</td>
+                <td>108</td>
+                <td>206.9847</td>
+                <td>281</td>
+                <td>0.3403</td>
+            </tr>
+        
+            <tr>
+                <td>Auburn</td>
+                <td>8</td>
+                <td>254.7844</td>
+                <td>282</td>
+                <td>0.3406</td>
+            </tr>
+        
+            <tr>
+                <td>Washington</td>
+                <td>95</td>
+                <td>209.7704</td>
+                <td>283</td>
+                <td>0.3424</td>
+            </tr>
+        
+            <tr>
+                <td>Long Island University</td>
+                <td>210</td>
+                <td>185.3996</td>
+                <td>284</td>
+                <td>0.3426</td>
+            </tr>
+        
+            <tr>
+                <td>Lamar</td>
+                <td>190</td>
+                <td>189.8437</td>
+                <td>285</td>
+                <td>0.3430</td>
+            </tr>
+        
+            <tr>
+                <td>Wright State</td>
+                <td>10</td>
+                <td>250.2097</td>
+                <td>286</td>
+                <td>0.3439</td>
+            </tr>
+        
+            <tr>
+                <td>Miami</td>
+                <td>38</td>
+                <td>228.9274</td>
+                <td>287</td>
+                <td>0.3441</td>
+            </tr>
+        
+            <tr>
+                <td>Hampton</td>
+                <td>140</td>
+                <td>200.6440</td>
+                <td>288</td>
+                <td>0.3445</td>
+            </tr>
+        
+            <tr>
+                <td>Eastern Illinois</td>
+                <td>141</td>
+                <td>200.5366</td>
+                <td>289</td>
+                <td>0.3451</td>
+            </tr>
+        
+            <tr>
+                <td>Purdue Fort Wayne</td>
+                <td>183</td>
+                <td>191.7711</td>
+                <td>290</td>
+                <td>0.3459</td>
+            </tr>
+        
+            <tr>
+                <td>Cal State Bakersfield</td>
+                <td>87</td>
+                <td>211.5445</td>
+                <td>291</td>
+                <td>0.3468</td>
+            </tr>
+        
+            <tr>
+                <td>Southern Utah</td>
+                <td>40</td>
+                <td>228.5963</td>
+                <td>292</td>
+                <td>0.3469</td>
+            </tr>
+        
+            <tr>
+                <td>Montana</td>
+                <td>69</td>
+                <td>214.8176</td>
+                <td>293</td>
+                <td>0.3470</td>
+            </tr>
+        
+            <tr>
+                <td>Central Michigan</td>
+                <td>128</td>
+                <td>203.8525</td>
+                <td>294</td>
+                <td>0.3472</td>
+            </tr>
+        
+            <tr>
+                <td>Morgan State</td>
+                <td>288</td>
+                <td>159.1002</td>
+                <td>295</td>
+                <td>0.3483</td>
+            </tr>
+        
+            <tr>
+                <td>Fairfield</td>
+                <td>249</td>
+                <td>173.5508</td>
+                <td>296</td>
+                <td>0.3484</td>
+            </tr>
+        
+            <tr>
+                <td>Sam Houston</td>
+                <td>33</td>
+                <td>230.9283</td>
+                <td>297</td>
+                <td>0.3491</td>
+            </tr>
+        
+            <tr>
+                <td>Tennessee State</td>
+                <td>149</td>
+                <td>198.8441</td>
+                <td>298</td>
+                <td>0.3491</td>
+            </tr>
+        
+            <tr>
+                <td>Air Force</td>
+                <td>218</td>
+                <td>183.1581</td>
+                <td>299</td>
+                <td>0.3491</td>
+            </tr>
+        
+            <tr>
+                <td>Omaha</td>
+                <td>165</td>
+                <td>196.8647</td>
+                <td>300</td>
+                <td>0.3501</td>
+            </tr>
+        
+            <tr>
+                <td>UL Monroe</td>
+                <td>126</td>
+                <td>204.2483</td>
+                <td>301</td>
+                <td>0.3504</td>
+            </tr>
+        
+            <tr>
+                <td>Lipscomb</td>
+                <td>142</td>
+                <td>200.4794</td>
+                <td>302</td>
+                <td>0.3514</td>
+            </tr>
+        
+            <tr>
+                <td>Houston Christian</td>
+                <td>192</td>
+                <td>189.3342</td>
+                <td>303</td>
+                <td>0.3515</td>
+            </tr>
+        
+            <tr>
+                <td>SE Louisiana</td>
+                <td>202</td>
+                <td>186.9147</td>
+                <td>304</td>
+                <td>0.3523</td>
+            </tr>
+        
+            <tr>
+                <td>Georgia</td>
+                <td>15</td>
+                <td>244.7400</td>
+                <td>305</td>
+                <td>0.3525</td>
+            </tr>
+        
+            <tr>
+                <td>La Salle</td>
+                <td>74</td>
+                <td>213.5426</td>
+                <td>306</td>
+                <td>0.3525</td>
+            </tr>
+        
+            <tr>
+                <td>Coppin State</td>
+                <td>304</td>
+                <td>151.0367</td>
+                <td>307</td>
+                <td>0.3529</td>
+            </tr>
+        
+            <tr>
+                <td>Charleston</td>
+                <td>109</td>
+                <td>206.9345</td>
+                <td>308</td>
+                <td>0.3544</td>
+            </tr>
+        
+            <tr>
+                <td>Green Bay</td>
+                <td>123</td>
+                <td>204.9327</td>
+                <td>309</td>
+                <td>0.3559</td>
+            </tr>
+        
+            <tr>
+                <td>Florida International</td>
+                <td>121</td>
+                <td>205.3884</td>
+                <td>310</td>
+                <td>0.3567</td>
+            </tr>
+        
+            <tr>
+                <td>South Alabama</td>
+                <td>47</td>
+                <td>224.6842</td>
+                <td>311</td>
+                <td>0.3571</td>
+            </tr>
+        
+            <tr>
+                <td>Portland</td>
+                <td>229</td>
+                <td>179.7288</td>
+                <td>312</td>
+                <td>0.3587</td>
+            </tr>
+        
+            <tr>
+                <td>California Baptist</td>
+                <td>193</td>
+                <td>189.0746</td>
+                <td>313</td>
+                <td>0.3594</td>
+            </tr>
+        
+            <tr>
+                <td>IU Indianapolis</td>
+                <td>122</td>
+                <td>205.3350</td>
+                <td>314</td>
+                <td>0.3595</td>
+            </tr>
+        
+            <tr>
+                <td>Kennesaw State</td>
+                <td>188</td>
+                <td>190.2728</td>
+                <td>315</td>
+                <td>0.3607</td>
+            </tr>
+        
+            <tr>
+                <td>Norfolk State</td>
+                <td>267</td>
+                <td>167.4568</td>
+                <td>316</td>
+                <td>0.3620</td>
+            </tr>
+        
+            <tr>
+                <td>Western Carolina</td>
+                <td>77</td>
+                <td>213.3330</td>
+                <td>317</td>
+                <td>0.3621</td>
+            </tr>
+        
+            <tr>
+                <td>Idaho</td>
+                <td>226</td>
+                <td>181.0416</td>
+                <td>318</td>
+                <td>0.3633</td>
+            </tr>
+        
+            <tr>
+                <td>Hawai'i</td>
+                <td>84</td>
+                <td>212.2846</td>
+                <td>319</td>
+                <td>0.3637</td>
+            </tr>
+        
+            <tr>
+                <td>Illinois State</td>
+                <td>20</td>
+                <td>239.5019</td>
+                <td>320</td>
+                <td>0.3655</td>
+            </tr>
+        
+            <tr>
+                <td>New Hampshire</td>
+                <td>131</td>
+                <td>202.5912</td>
+                <td>321</td>
+                <td>0.3658</td>
+            </tr>
+        
+            <tr>
+                <td>Western Illinois</td>
+                <td>113</td>
+                <td>206.4736</td>
+                <td>322</td>
+                <td>0.3667</td>
+            </tr>
+        
+            <tr>
+                <td>Tennessee Tech</td>
+                <td>119</td>
+                <td>205.4347</td>
+                <td>323</td>
+                <td>0.3671</td>
+            </tr>
+        
+            <tr>
+                <td>St. Francis Brooklyn</td>
+                <td>138</td>
+                <td>200.9941</td>
+                <td>324</td>
+                <td>0.3675</td>
+            </tr>
+        
+            <tr>
+                <td>UTSA</td>
+                <td>17</td>
+                <td>240.8848</td>
+                <td>325</td>
+                <td>0.3677</td>
+            </tr>
+        
+            <tr>
+                <td>Fairleigh Dickinson</td>
+                <td>143</td>
+                <td>200.4691</td>
+                <td>326</td>
+                <td>0.3699</td>
+            </tr>
+        
+            <tr>
+                <td>ND1</td>
+                <td>301</td>
+                <td>152.2413</td>
+                <td>327</td>
+                <td>0.3720</td>
+            </tr>
+        
+            <tr>
+                <td>Toledo</td>
+                <td>3</td>
+                <td>272.5436</td>
+                <td>328</td>
+                <td>0.3727</td>
+            </tr>
+        
+            <tr>
+                <td>North Dakota</td>
+                <td>68</td>
+                <td>215.0634</td>
+                <td>329</td>
+                <td>0.3743</td>
+            </tr>
+        
+            <tr>
+                <td>Belmont</td>
+                <td>1</td>
+                <td>282.6770</td>
+                <td>330</td>
+                <td>0.3748</td>
+            </tr>
+        
+            <tr>
+                <td>Youngstown State</td>
+                <td>62</td>
+                <td>218.8827</td>
+                <td>331</td>
+                <td>0.3750</td>
+            </tr>
+        
+            <tr>
+                <td>Northwestern State</td>
+                <td>79</td>
+                <td>213.1490</td>
+                <td>332</td>
+                <td>0.3789</td>
+            </tr>
+        
+            <tr>
+                <td>The Citadel</td>
+                <td>28</td>
+                <td>232.9446</td>
+                <td>333</td>
+                <td>0.3809</td>
+            </tr>
+        
+            <tr>
+                <td>Alabama State</td>
+                <td>224</td>
+                <td>182.0313</td>
+                <td>334</td>
+                <td>0.3812</td>
+            </tr>
+        
+            <tr>
+                <td>Lehigh</td>
+                <td>118</td>
+                <td>205.6428</td>
+                <td>335</td>
+                <td>0.3839</td>
+            </tr>
+        
+            <tr>
+                <td>Jacksonville</td>
+                <td>110</td>
+                <td>206.7989</td>
+                <td>336</td>
+                <td>0.3860</td>
+            </tr>
+        
+            <tr>
+                <td>Central Connecticut</td>
+                <td>200</td>
+                <td>187.5059</td>
+                <td>337</td>
+                <td>0.3864</td>
+            </tr>
+        
+            <tr>
+                <td>St. Francis (PA)</td>
+                <td>91</td>
+                <td>210.5684</td>
+                <td>338</td>
+                <td>0.3925</td>
+            </tr>
+        
+            <tr>
+                <td>Oakland</td>
+                <td>25</td>
+                <td>235.3263</td>
+                <td>339</td>
+                <td>0.3991</td>
+            </tr>
+        
+            <tr>
+                <td>Arkansas-Pine Bluff</td>
+                <td>180</td>
+                <td>192.4268</td>
+                <td>340</td>
+                <td>0.4026</td>
+            </tr>
+        
+            <tr>
+                <td>Mississippi Valley State</td>
+                <td>282</td>
+                <td>162.9762</td>
+                <td>341</td>
+                <td>0.4130</td>
+            </tr>
+        
+            <tr>
+                <td>Delaware State</td>
+                <td>319</td>
+                <td>145.9335</td>
+                <td>342</td>
+                <td>0.4143</td>
+            </tr>
+        
+            <tr>
+                <td>Hofstra</td>
+                <td>9</td>
+                <td>250.5319</td>
+                <td>343</td>
+                <td>0.4153</td>
+            </tr>
+        
+        </tbody>
+    </table>
+</body>
+</html>
