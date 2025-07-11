@@ -52,8 +52,7 @@
       const cfrLink = `cfr/cfr${year}.html`;
       const cfodLink = `cfod/cfod${year}.html`;
 
-      document.getElementById("cfrLink").innerHTML = `<a href="${cfrLink}" target="_blank">CFR ${year}</a>`;
-      document.getElementById("cfodLink").innerHTML = `<a href="${cfodLink}" target="_blank">OPDP ${year}</a>`;
+      document.getElementById("cfrLink").innerHTML = `<a href="${cfrLink}" target="_blank">MPCA Ratings ${year}</a>`;
     }
   </script>
 </head>
@@ -63,7 +62,7 @@
     <label for="yearSelect">Select a Year:</label>
     <select id="yearSelect">
       <script>
-        for (let year = 1936; year <= 2024; year++) {
+        for (let year = 1982; year <= 2024; year++) {
           document.write(`<option value="${year}">${year}</option>`);
         }
       </script>
@@ -72,7 +71,6 @@
 
     <div class="link-container">
       <div id="cfrLink"></div>
-      <div id="cfodLink"></div>
     </div>
 
 <div class="text-center pt-6">
