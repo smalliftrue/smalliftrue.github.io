@@ -58,7 +58,8 @@ header h1 {
   /* writing-mode: vertical-rl;
   transform: rotate(180deg); */
   font-weight: bold;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 0.25rem;
   padding-left: 0.75rem;
 }
 
