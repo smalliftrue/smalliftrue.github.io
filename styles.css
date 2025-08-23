@@ -145,4 +145,12 @@ main.fullspan {
     border: none;    /* optional: drop outer border if you want clean edge-to-edge */
     padding: 0.5rem; /* smaller padding for small screens */
   }
+  main.fullspan {
+    grid-column: 1 / -1;
+    border-left: none;   /* kill side borders */
+    border-right: none;  /* kill side borders */
+    width: 100%;         /* stretch edge-to-edge */
+    padding: 0.5rem;     /* lighter padding for mobile */
+  }
+
 }
