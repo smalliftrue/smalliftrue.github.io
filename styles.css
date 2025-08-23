@@ -139,4 +139,10 @@ main.fullspan {
     font-size: 1.1rem; /* shrink long title so it wraps better */
     text-align: center;
   }
+
+  .wrapper-full {
+    width: 100%;     /* take full width on mobile */
+    border: none;    /* optional: drop outer border if you want clean edge-to-edge */
+    padding: 0.5rem; /* smaller padding for small screens */
+  }
 }
