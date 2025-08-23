@@ -4,10 +4,11 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #dcdcdc; /* light gray margins */
+  background-color: #dcdcdc; /* light gray side margins */
   font-family: monospace;
 }
 
+/* Page frame */
 .wrapper {
   display: grid;
   grid-template-columns: 250px 1fr;
@@ -15,12 +16,21 @@ body {
   grid-template-areas:
     "header header"
     "sidebar-left main";
-  width: 75%;           
-  margin: 0 auto;       
-  min-height: 100vh;    
-  border: 4px solid #333;
+  width: 75%;            /* 75% width, centered on desktop */
+  margin: 0 auto;
+  min-height: 100vh;
+  border: 4px solid #333;  /* desktop border */
   box-sizing: border-box;
   background: #fff;
+}
+
+/* Force desktop border & width in case other rules creep in */
+@media (min-width: 769px) {
+  .wrapper {
+    width: 75%;
+    border: 4px solid #333;
+    margin: 0 auto;
+  }
 }
 
 header {
@@ -44,12 +54,12 @@ header h1 {
 }
 
 .sidebar-left .vertical-text {
-  /* writing-mode: vertical-rl; */
-  /* transform: rotate(180deg); */
+  /* If you want vertical text, uncomment the two lines below */
+  /* writing-mode: vertical-rl;
+  transform: rotate(180deg); */
   font-weight: bold;
   margin-bottom: 2rem;
   padding-left: 0.75rem;
-  /* text-align: center; */
 }
 
 .sidebar-left ol {
@@ -60,7 +70,7 @@ header h1 {
 
 .sidebar-left li {
   margin: 0.5rem 0;
-  padding-left: 0.75rem; /* <--- pushes team names away from border */
+  padding-left: 0.75rem; /* pushes team names away from border */
 }
 
 main {
@@ -103,54 +113,69 @@ main {
   font-weight: bold;
 }
 
-.wrapper-full {
-  width: 75%;
-  margin: 0 auto;
-  border: 4px solid #333;
-  background: #fff;
-  box-sizing: border-box;
-  min-height: 100vh;
-  padding: 1rem;
+/* =========================
+   Rankings Sheets (CFR) Layout
+   ========================= */
+/* Your CFR pages use .wrapper (same as index) but have no sidebar.
+   They put the sheet in: main.fullspan > pre  */
+main.fullspan {
+  grid-column: 1 / -1; /* span full grid width */
 }
 
-main.fullspan {
-  grid-column: 1 / -1;
+/* The preformatted rankings block on desktop */
+main.fullspan pre {
+  font-family: monospace;
+  white-space: pre;
+  margin: 1em;
+  padding: 1em;
+  background: #fff;
+  border: 2px solid #333; /* inner sheet border on desktop */
 }
 
 /* =========================
-   Responsive Fixes
+   Responsive Fixes (phones)
    ========================= */
 @media (max-width: 768px) {
+  /* Collapse all wrapper-based pages (index, archive, CFR) */
   .wrapper {
-    grid-template-columns: 1fr; /* collapse to single column */
+    grid-template-columns: 1fr;
     grid-template-areas:
       "header"
       "sidebar-left"
       "main";
-    width: 100%; /* full width on mobile */
+    width: 100vw;     /* full width on mobile */
+    border: none;    /* remove big outer border on mobile */
+    margin: 0;
+    padding: 0;
   }
 
   .sidebar-left {
-    border-right: none; /* no split border */
-    border-bottom: 4px solid #333; /* separate sidebar from main */
+    border-right: none;               /* remove side split */
+    border-bottom: 4px solid #333;    /* keep separation */
   }
 
   header h1 {
-    font-size: 1.1rem; /* shrink long title so it wraps better */
+    font-size: 1.1rem;
     text-align: center;
   }
 
-  .wrapper-full {
-    width: 100%;     /* take full width on mobile */
-    border: none;    /* optional: drop outer border if you want clean edge-to-edge */
-    padding: 0.5rem; /* smaller padding for small screens */
-  }
+  /* Rankings pages: remove inner borders/margins so they fill width */
   main.fullspan {
-    grid-column: 1 / -1;
-    border-left: none;   /* kill side borders */
-    border-right: none;  /* kill side borders */
-    width: 100%;         /* stretch edge-to-edge */
-    padding: 0.5rem;     /* lighter padding for mobile */
+    /* grid-column: 1 / -1; */
+    width: 100vw;
+    border: none;
+    padding: 0.5rem;
   }
 
+  main.fullspan pre {
+    border: none;
+    margin: 0;
+    padding: 0.5rem;
+    width: 100vw;
+    line-height: 1.2;
+    background: #fff;
+    box-sizing: border-box;
+    white-space: pre;     /* keep formatting, no wrapping */
+    overflow-x: auto;     /* fallback scroll if needed */
+  }
 }
