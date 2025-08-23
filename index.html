@@ -2,51 +2,126 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alex Wang's Computer Sports Rankings</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 2em;
-      background-color: #f5f5f5;
-      color: #333;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      padding: 2em;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    h1, h2 {
-      color: #2c3e50;
-    }
-    nav {
-      margin-top: 2em;
-    }
-    nav a {
-      display: block;
-      margin: 0.5em 0;
-      text-decoration: none;
-      color: #3498db;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Alex Wang's Computer Sports Rankings</h1>
-    <section>
-      <p>The computer votecasting index (CVI) has each team submit "votes" for the teams it played, based on how well a team performed in relation to their average opponent. Votes are then used as "weights" to determine strength of schedule. This process is continued using the last-pass weights until convergence is acheived.</p>
-    </section>
+  <div class="wrapper">
+    <header>
+      <h1>ALEX WANG'S COMPUTER SPORTS RANKINGS</h1>
+    </header>
 
-    <nav>
-      <a href="college-football.html"style="text-align: center;">CVI Rankings 1982-present</a>
-    </nav>
+    <aside class="sidebar-left">
+      <div class="vertical-text">FOOTBALL (FBS) 22.8.25</div>
+      <!-- You can change data-src if cfr2025.html lives elsewhere -->
+      <ol class="top25" data-src="cfr/cfr2025.html">
+        <li>Team 1</li>
+        <li>Team 2</li>
+        <li>Team 3</li>
+        <li>Team 4</li>
+        <li>Team 5</li>
+        <li>Team 6</li>
+        <li>Team 7</li>
+        <li>Team 8</li>
+        <li>Team 9</li>
+        <li>Team 10</li>
+        <li>Team 11</li>
+        <li>Team 12</li>
+        <li>Team 13</li>
+        <li>Team 14</li>
+        <li>Team 15</li>
+        <li>Team 16</li>
+        <li>Team 17</li>
+        <li>Team 18</li>
+        <li>Team 19</li>
+        <li>Team 20</li>
+        <li>Team 21</li>
+        <li>Team 22</li>
+        <li>Team 23</li>
+        <li>Team 24</li>
+        <li>Team 25</li>
+      </ol>
+    </aside>
+
+    <main>
+      <section class="methodology">
+        <h2>Methodology</h2>
+        <p>The computer votecasting index (CVI) has each team submit "votes" for the teams it played, based on how well a team performed in relation to their average opponent. Votes are then used as "weights" to determine strength of schedule. This process is continued using the last-pass weights until convergence is achieved.</p>
+        <p><a href="methodratev1.pdf">Want to see how it works? Click here</a></p>
+      </section>
+
+      <section class="rankings">
+        <h2>Index to Weekly 2025 Rankings</h2>
+        <ul>
+          <li>Preseason</li>
+        </ul>
+      </section>
+	
+      <section class="rankings">
+        <h2>Past Rankings (1984-)</h2>
+        <ul>
+          <li><a href="college-football.html">CVI Ratings 1982-present</a></li>
+        </ul>
+      </section>
+    </main>
   </div>
+
+  <!-- Script to dynamically load top 25 from cfr2025.html -->
+  <script>
+  async function loadTop25() {
+    const list = document.querySelector(".top25");
+    if (!list) return;
+
+    // Allow overriding the source path via data-src on the <ol>
+    const src = list.dataset.src || "cfr/cfr2025.html";
+
+    try {
+      // Cache-bust so weekly updates show up immediately on GitHub Pages
+      const response = await fetch(src + "?v=" + Date.now());
+      if (!response.ok) throw new Error("HTTP " + response.status);
+      const html = await response.text();
+
+      // Parse fetched HTML and get the <pre> text
+      const doc = new DOMParser().parseFromString(html, "text/html");
+      const pre = doc.querySelector("pre");
+      const preText = pre ? pre.textContent : html;
+
+      // Parse lines and extract the team names for the first 25 ranks
+      const names = [];
+      const lines = preText.split(/\r?\n/);
+
+      for (const line of lines) {
+        const m = line.match(/^\s*\d+\.\s+(.+?)\s+\d/);
+        if (m) {
+          names.push(m[1].trim());
+          if (names.length === 25) break;
+        }
+      }
+
+      if (names.length === 0) {
+        console.warn("No ranked team lines found. Check the source format.");
+        return;
+      }
+
+      // Replace list contents
+      list.innerHTML = "";
+      names.forEach(team => {
+        const li = document.createElement("li");
+        li.textContent = team;
+        list.appendChild(li);
+      });
+    } catch (err) {
+      console.error("Error loading top 25:", err);
+    }
+  }
+
+  // Run when DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", loadTop25);
+  } else {
+    loadTop25();
+  }
+  </script>
 </body>
 </html>

@@ -1,0 +1,114 @@
+/* styles.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #dcdcdc; /* light gray margins */
+  font-family: monospace;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "header header"
+    "sidebar-left main";
+  width: 75%;           /* 75% of viewport width */
+  margin: 0 auto;       /* center horizontally */
+  min-height: 100vh;    /* full viewport height */
+  border: 4px solid #333;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+header {
+  grid-area: header;
+  background: #e0e0e0;
+  padding: 1rem;
+  border-bottom: 4px solid #333;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.sidebar-left {
+  grid-area: sidebar-left;
+  border-right: 4px solid #333;
+  background: #fff;
+  padding: 1rem;
+}
+
+.sidebar-left .vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.sidebar-left ol {
+  margin: 0;
+  padding: 0 0 0 1rem;
+}
+
+.sidebar-left li {
+  margin: 0.5rem 0;
+}
+
+main {
+  grid-area: main;
+  padding: 1rem;
+  background: #fff;
+}
+
+/* Methodology section box */
+.methodology {
+  border: 2px solid #333;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.methodology a {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* Index links section box */
+.index-links {
+  border: 2px solid #333;
+  padding: 1rem;
+}
+
+.index-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.index-links li {
+  margin: 0.5rem 0;
+}
+
+.index-links a {
+  color: #000;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.wrapper-full {
+  width: 75%;
+  margin: 0 auto;
+  border: 4px solid #333;
+  background: #fff;
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+main.fullspan {
+  grid-column: 1 / -1;  /* spans across all grid columns */
+}

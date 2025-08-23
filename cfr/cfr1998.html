@@ -1,842 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>CVI Ratings 1998</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 2em;
-            background: #f4f4f4;
-        }
-        h1 {
-            color: #333;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 0.5em;
-            text-align: left;
-        }
-        th {
-            background: #333;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>CVI Ratings 1998</title>
+  <link rel="stylesheet" href="../styles.css"/>
+  <style>
+    pre {
+      font-family: monospace;
+      white-space: pre;
+      margin: 1em;
+      padding: 1em;
+      background: #fff;
+      border: 2px solid #333;
+    }
+  </style>
 </head>
 <body>
-    <h1>CVI (Computer Votecasting Index) Ratings 1998</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>RANKING</th>
-                <th>TEAM</th>
-                <th>RATING</th>
-                <th>RECORD</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-                <tr>
-                    <td>1</td>
-                    <td>Tennessee</td>
-                    <td>0.9793</td>
-                    <td>13-0-0</td>
-                </tr>
-            
-                <tr>
-                    <td>2</td>
-                    <td>Ohio State</td>
-                    <td>0.9588</td>
-                    <td>11-1-0</td>
-                </tr>
-            
-                <tr>
-                    <td>3</td>
-                    <td>Florida State</td>
-                    <td>0.9358</td>
-                    <td>11-2-0</td>
-                </tr>
-            
-                <tr>
-                    <td>4</td>
-                    <td>Kansas State</td>
-                    <td>0.8797</td>
-                    <td>11-2-0</td>
-                </tr>
-            
-                <tr>
-                    <td>5</td>
-                    <td>Texas A&M</td>
-                    <td>0.8632</td>
-                    <td>11-3-0</td>
-                </tr>
-            
-                <tr>
-                    <td>6</td>
-                    <td>UCLA</td>
-                    <td>0.8544</td>
-                    <td>10-2-0</td>
-                </tr>
-            
-                <tr>
-                    <td>7</td>
-                    <td>Wisconsin</td>
-                    <td>0.8465</td>
-                    <td>11-1-0</td>
-                </tr>
-            
-                <tr>
-                    <td>8</td>
-                    <td>Florida</td>
-                    <td>0.8353</td>
-                    <td>10-2-0</td>
-                </tr>
-            
-                <tr>
-                    <td>9</td>
-                    <td>Air Force</td>
-                    <td>0.8037</td>
-                    <td>12-1-0</td>
-                </tr>
-            
-                <tr>
-                    <td>10</td>
-                    <td>Nebraska</td>
-                    <td>0.7966</td>
-                    <td>9-4-0</td>
-                </tr>
-            
-                <tr>
-                    <td>11</td>
-                    <td>Arizona</td>
-                    <td>0.7871</td>
-                    <td>12-1-0</td>
-                </tr>
-            
-                <tr>
-                    <td>12</td>
-                    <td>Tulane</td>
-                    <td>0.7855</td>
-                    <td>12-0-0</td>
-                </tr>
-            
-                <tr>
-                    <td>13</td>
-                    <td>Michigan</td>
-                    <td>0.7765</td>
-                    <td>10-3-0</td>
-                </tr>
-            
-                <tr>
-                    <td>14</td>
-                    <td>Georgia Tech</td>
-                    <td>0.7751</td>
-                    <td>10-2-0</td>
-                </tr>
-            
-                <tr>
-                    <td>15</td>
-                    <td>Virginia Tech</td>
-                    <td>0.7696</td>
-                    <td>9-3-0</td>
-                </tr>
-            
-                <tr>
-                    <td>16</td>
-                    <td>Syracuse</td>
-                    <td>0.7611</td>
-                    <td>8-4-0</td>
-                </tr>
-            
-                <tr>
-                    <td>17</td>
-                    <td>Miami</td>
-                    <td>0.7589</td>
-                    <td>9-3-0</td>
-                </tr>
-            
-                <tr>
-                    <td>18</td>
-                    <td>Texas</td>
-                    <td>0.7579</td>
-                    <td>9-3-0</td>
-                </tr>
-            
-                <tr>
-                    <td>19</td>
-                    <td>Missouri</td>
-                    <td>0.7556</td>
-                    <td>8-4-0</td>
-                </tr>
-            
-                <tr>
-                    <td>20</td>
-                    <td>Penn State</td>
-                    <td>0.7490</td>
-                    <td>9-3-0</td>
-                </tr>
-            
-                <tr>
-                    <td>21</td>
-                    <td>Purdue</td>
-                    <td>0.7489</td>
-                    <td>9-4-0</td>
-                </tr>
-            
-                <tr>
-                    <td>22</td>
-                    <td>Arkansas</td>
-                    <td>0.7303</td>
-                    <td>9-3-0</td>
-                </tr>
-            
-                <tr>
-                    <td>23</td>
-                    <td>Virginia</td>
-                    <td>0.7245</td>
-                    <td>9-3-0</td>
-                </tr>
-            
-                <tr>
-                    <td>24</td>
-                    <td>Notre Dame</td>
-                    <td>0.7170</td>
-                    <td>9-3-0</td>
-                </tr>
-            
-                <tr>
-                    <td>25</td>
-                    <td>West Virginia</td>
-                    <td>0.6976</td>
-                    <td>8-4-0</td>
-                </tr>
-            
-                <tr>
-                    <td>26</td>
-                    <td>USC</td>
-                    <td>0.6899</td>
-                    <td>8-5-0</td>
-                </tr>
-            
-                <tr>
-                    <td>27</td>
-                    <td>Colorado</td>
-                    <td>0.6868</td>
-                    <td>8-4-0</td>
-                </tr>
-            
-                <tr>
-                    <td>28</td>
-                    <td>Oregon</td>
-                    <td>0.6866</td>
-                    <td>8-4-0</td>
-                </tr>
-            
-                <tr>
-                    <td>29</td>
-                    <td>Georgia</td>
-                    <td>0.6846</td>
-                    <td>9-3-0</td>
-                </tr>
-            
-                <tr>
-                    <td>30</td>
-                    <td>Miami (OH)</td>
-                    <td>0.6712</td>
-                    <td>10-1-0</td>
-                </tr>
-            
-                <tr>
-                    <td>31</td>
-                    <td>Marshall</td>
-                    <td>0.6488</td>
-                    <td>12-1-0</td>
-                </tr>
-            
-                <tr>
-                    <td>32</td>
-                    <td>Wyoming</td>
-                    <td>0.6312</td>
-                    <td>8-3-0</td>
-                </tr>
-            
-                <tr>
-                    <td>33</td>
-                    <td>Colorado State</td>
-                    <td>0.6163</td>
-                    <td>8-4-0</td>
-                </tr>
-            
-                <tr>
-                    <td>34</td>
-                    <td>Alabama</td>
-                    <td>0.6137</td>
-                    <td>7-5-0</td>
-                </tr>
-            
-                <tr>
-                    <td>35</td>
-                    <td>Michigan State</td>
-                    <td>0.6131</td>
-                    <td>6-6-0</td>
-                </tr>
-            
-                <tr>
-                    <td>36</td>
-                    <td>Mississippi State</td>
-                    <td>0.6068</td>
-                    <td>8-5-0</td>
-                </tr>
-            
-                <tr>
-                    <td>37</td>
-                    <td>Southern Miss</td>
-                    <td>0.5959</td>
-                    <td>7-5-0</td>
-                </tr>
-            
-                <tr>
-                    <td>38</td>
-                    <td>Texas Tech</td>
-                    <td>0.5891</td>
-                    <td>7-5-0</td>
-                </tr>
-            
-                <tr>
-                    <td>39</td>
-                    <td>NC State</td>
-                    <td>0.5846</td>
-                    <td>7-5-0</td>
-                </tr>
-            
-                <tr>
-                    <td>40</td>
-                    <td>UCF</td>
-                    <td>0.5845</td>
-                    <td>9-2-0</td>
-                </tr>
-            
-                <tr>
-                    <td>41</td>
-                    <td>Kentucky</td>
-                    <td>0.5791</td>
-                    <td>7-5-0</td>
-                </tr>
-            
-                <tr>
-                    <td>42</td>
-                    <td>BYU</td>
-                    <td>0.5769</td>
-                    <td>9-5-0</td>
-                </tr>
-            
-                <tr>
-                    <td>43</td>
-                    <td>Washington</td>
-                    <td>0.5527</td>
-                    <td>6-6-0</td>
-                </tr>
-            
-                <tr>
-                    <td>44</td>
-                    <td>Utah</td>
-                    <td>0.5446</td>
-                    <td>7-4-0</td>
-                </tr>
-            
-                <tr>
-                    <td>45</td>
-                    <td>North Carolina</td>
-                    <td>0.5378</td>
-                    <td>7-5-0</td>
-                </tr>
-            
-                <tr>
-                    <td>46</td>
-                    <td>TCU</td>
-                    <td>0.5313</td>
-                    <td>7-5-0</td>
-                </tr>
-            
-                <tr>
-                    <td>47</td>
-                    <td>Louisville</td>
-                    <td>0.5290</td>
-                    <td>7-5-0</td>
-                </tr>
-            
-                <tr>
-                    <td>48</td>
-                    <td>Oklahoma State</td>
-                    <td>0.5243</td>
-                    <td>5-6-0</td>
-                </tr>
-            
-                <tr>
-                    <td>49</td>
-                    <td>Idaho</td>
-                    <td>0.5242</td>
-                    <td>9-3-0</td>
-                </tr>
-            
-                <tr>
-                    <td>50</td>
-                    <td>San Diego State</td>
-                    <td>0.5227</td>
-                    <td>7-5-0</td>
-                </tr>
-            
-                <tr>
-                    <td>51</td>
-                    <td>LSU</td>
-                    <td>0.5223</td>
-                    <td>4-7-0</td>
-                </tr>
-            
-                <tr>
-                    <td>52</td>
-                    <td>Toledo</td>
-                    <td>0.5133</td>
-                    <td>7-5-0</td>
-                </tr>
-            
-                <tr>
-                    <td>53</td>
-                    <td>Rice</td>
-                    <td>0.4955</td>
-                    <td>5-6-0</td>
-                </tr>
-            
-                <tr>
-                    <td>54</td>
-                    <td>Ole Miss</td>
-                    <td>0.4915</td>
-                    <td>7-5-0</td>
-                </tr>
-            
-                <tr>
-                    <td>55</td>
-                    <td>Arizona State</td>
-                    <td>0.4893</td>
-                    <td>5-6-0</td>
-                </tr>
-            
-                <tr>
-                    <td>56</td>
-                    <td>Minnesota</td>
-                    <td>0.4860</td>
-                    <td>5-6-0</td>
-                </tr>
-            
-                <tr>
-                    <td>57</td>
-                    <td>Auburn</td>
-                    <td>0.4802</td>
-                    <td>3-8-0</td>
-                </tr>
-            
-                <tr>
-                    <td>58</td>
-                    <td>Oregon State</td>
-                    <td>0.4795</td>
-                    <td>5-6-0</td>
-                </tr>
-            
-                <tr>
-                    <td>59</td>
-                    <td>California</td>
-                    <td>0.4782</td>
-                    <td>5-6-0</td>
-                </tr>
-            
-                <tr>
-                    <td>60</td>
-                    <td>Fresno State</td>
-                    <td>0.4670</td>
-                    <td>5-6-0</td>
-                </tr>
-            
-                <tr>
-                    <td>61</td>
-                    <td>Boston College</td>
-                    <td>0.4655</td>
-                    <td>4-7-0</td>
-                </tr>
-            
-                <tr>
-                    <td>62</td>
-                    <td>Bowling Green</td>
-                    <td>0.4566</td>
-                    <td>5-6-0</td>
-                </tr>
-            
-                <tr>
-                    <td>63</td>
-                    <td>Nevada</td>
-                    <td>0.4558</td>
-                    <td>6-5-0</td>
-                </tr>
-            
-                <tr>
-                    <td>64</td>
-                    <td>Oklahoma</td>
-                    <td>0.4488</td>
-                    <td>5-6-0</td>
-                </tr>
-            
-                <tr>
-                    <td>65</td>
-                    <td>Louisiana Tech</td>
-                    <td>0.4462</td>
-                    <td>6-6-0</td>
-                </tr>
-            
-                <tr>
-                    <td>66</td>
-                    <td>Indiana</td>
-                    <td>0.4414</td>
-                    <td>4-7-0</td>
-                </tr>
-            
-                <tr>
-                    <td>67</td>
-                    <td>East Carolina</td>
-                    <td>0.4236</td>
-                    <td>6-5-0</td>
-                </tr>
-            
-                <tr>
-                    <td>68</td>
-                    <td>Ohio</td>
-                    <td>0.4170</td>
-                    <td>5-6-0</td>
-                </tr>
-            
-                <tr>
-                    <td>69</td>
-                    <td>SMU</td>
-                    <td>0.4136</td>
-                    <td>5-7-0</td>
-                </tr>
-            
-                <tr>
-                    <td>70</td>
-                    <td>Western Michigan</td>
-                    <td>0.4044</td>
-                    <td>7-4-0</td>
-                </tr>
-            
-                <tr>
-                    <td>71</td>
-                    <td>Kansas</td>
-                    <td>0.3987</td>
-                    <td>4-7-0</td>
-                </tr>
-            
-                <tr>
-                    <td>72</td>
-                    <td>Boise State</td>
-                    <td>0.3917</td>
-                    <td>6-5-0</td>
-                </tr>
-            
-                <tr>
-                    <td>73</td>
-                    <td>Central Michigan</td>
-                    <td>0.3816</td>
-                    <td>6-5-0</td>
-                </tr>
-            
-                <tr>
-                    <td>74</td>
-                    <td>Army</td>
-                    <td>0.3780</td>
-                    <td>3-8-0</td>
-                </tr>
-            
-                <tr>
-                    <td>75</td>
-                    <td>Tulsa</td>
-                    <td>0.3776</td>
-                    <td>4-7-0</td>
-                </tr>
-            
-                <tr>
-                    <td>76</td>
-                    <td>Stanford</td>
-                    <td>0.3732</td>
-                    <td>3-8-0</td>
-                </tr>
-            
-                <tr>
-                    <td>77</td>
-                    <td>Iowa</td>
-                    <td>0.3456</td>
-                    <td>3-8-0</td>
-                </tr>
-            
-                <tr>
-                    <td>78</td>
-                    <td>Clemson</td>
-                    <td>0.3444</td>
-                    <td>3-8-0</td>
-                </tr>
-            
-                <tr>
-                    <td>79</td>
-                    <td>Rutgers</td>
-                    <td>0.3427</td>
-                    <td>5-6-0</td>
-                </tr>
-            
-                <tr>
-                    <td>80</td>
-                    <td>San José State</td>
-                    <td>0.3411</td>
-                    <td>4-8-0</td>
-                </tr>
-            
-                <tr>
-                    <td>81</td>
-                    <td>Baylor</td>
-                    <td>0.3371</td>
-                    <td>2-9-0</td>
-                </tr>
-            
-                <tr>
-                    <td>82</td>
-                    <td>Iowa State</td>
-                    <td>0.3349</td>
-                    <td>3-8-0</td>
-                </tr>
-            
-                <tr>
-                    <td>83</td>
-                    <td>Akron</td>
-                    <td>0.3348</td>
-                    <td>4-7-0</td>
-                </tr>
-            
-                <tr>
-                    <td>84</td>
-                    <td>Houston</td>
-                    <td>0.3347</td>
-                    <td>3-8-0</td>
-                </tr>
-            
-                <tr>
-                    <td>85</td>
-                    <td>UL Monroe</td>
-                    <td>0.3140</td>
-                    <td>5-6-0</td>
-                </tr>
-            
-                <tr>
-                    <td>86</td>
-                    <td>Wake Forest</td>
-                    <td>0.3105</td>
-                    <td>3-8-0</td>
-                </tr>
-            
-                <tr>
-                    <td>87</td>
-                    <td>Northwestern</td>
-                    <td>0.3088</td>
-                    <td>3-9-0</td>
-                </tr>
-            
-                <tr>
-                    <td>88</td>
-                    <td>Maryland</td>
-                    <td>0.3062</td>
-                    <td>3-8-0</td>
-                </tr>
-            
-                <tr>
-                    <td>89</td>
-                    <td>Washington State</td>
-                    <td>0.3044</td>
-                    <td>3-8-0</td>
-                </tr>
-            
-                <tr>
-                    <td>90</td>
-                    <td>UTEP</td>
-                    <td>0.3033</td>
-                    <td>3-8-0</td>
-                </tr>
-            
-                <tr>
-                    <td>91</td>
-                    <td>Duke</td>
-                    <td>0.3032</td>
-                    <td>4-7-0</td>
-                </tr>
-            
-                <tr>
-                    <td>92</td>
-                    <td>Memphis</td>
-                    <td>0.2991</td>
-                    <td>2-9-0</td>
-                </tr>
-            
-                <tr>
-                    <td>93</td>
-                    <td>UAB</td>
-                    <td>0.2944</td>
-                    <td>4-7-0</td>
-                </tr>
-            
-                <tr>
-                    <td>94</td>
-                    <td>North Texas</td>
-                    <td>0.2881</td>
-                    <td>3-8-0</td>
-                </tr>
-            
-                <tr>
-                    <td>95</td>
-                    <td>New Mexico State</td>
-                    <td>0.2872</td>
-                    <td>3-8-0</td>
-                </tr>
-            
-                <tr>
-                    <td>96</td>
-                    <td>Pittsburgh</td>
-                    <td>0.2859</td>
-                    <td>2-9-0</td>
-                </tr>
-            
-                <tr>
-                    <td>97</td>
-                    <td>Utah State</td>
-                    <td>0.2842</td>
-                    <td>3-8-0</td>
-                </tr>
-            
-                <tr>
-                    <td>98</td>
-                    <td>Illinois</td>
-                    <td>0.2730</td>
-                    <td>3-8-0</td>
-                </tr>
-            
-                <tr>
-                    <td>99</td>
-                    <td>South Carolina</td>
-                    <td>0.2715</td>
-                    <td>1-10-0</td>
-                </tr>
-            
-                <tr>
-                    <td>100</td>
-                    <td>Temple</td>
-                    <td>0.2694</td>
-                    <td>2-9-0</td>
-                </tr>
-            
-                <tr>
-                    <td>101</td>
-                    <td>Eastern Michigan</td>
-                    <td>0.2592</td>
-                    <td>3-8-0</td>
-                </tr>
-            
-                <tr>
-                    <td>102</td>
-                    <td>Navy</td>
-                    <td>0.2513</td>
-                    <td>3-8-0</td>
-                </tr>
-            
-                <tr>
-                    <td>103</td>
-                    <td>Cincinnati</td>
-                    <td>0.2483</td>
-                    <td>2-9-0</td>
-                </tr>
-            
-                <tr>
-                    <td>104</td>
-                    <td>Northern Illinois</td>
-                    <td>0.2387</td>
-                    <td>2-9-0</td>
-                </tr>
-            
-                <tr>
-                    <td>105</td>
-                    <td>Arkansas State</td>
-                    <td>0.2341</td>
-                    <td>4-8-0</td>
-                </tr>
-            
-                <tr>
-                    <td>106</td>
-                    <td>New Mexico</td>
-                    <td>0.2239</td>
-                    <td>3-9-0</td>
-                </tr>
-            
-                <tr>
-                    <td>107</td>
-                    <td>Vanderbilt</td>
-                    <td>0.2178</td>
-                    <td>2-9-0</td>
-                </tr>
-            
-                <tr>
-                    <td>108</td>
-                    <td>Ball State</td>
-                    <td>0.1867</td>
-                    <td>1-10-0</td>
-                </tr>
-            
-                <tr>
-                    <td>109</td>
-                    <td>Louisiana</td>
-                    <td>0.1770</td>
-                    <td>2-9-0</td>
-                </tr>
-            
-                <tr>
-                    <td>110</td>
-                    <td>FCS</td>
-                    <td>0.1589</td>
-                    <td>6-41-0</td>
-                </tr>
-            
-                <tr>
-                    <td>111</td>
-                    <td>UNLV</td>
-                    <td>0.1363</td>
-                    <td>0-11-0</td>
-                </tr>
-            
-                <tr>
-                    <td>112</td>
-                    <td>Hawai'i</td>
-                    <td>0.1191</td>
-                    <td>0-12-0</td>
-                </tr>
-            
-                <tr>
-                    <td>113</td>
-                    <td>Kent State</td>
-                    <td>0.0800</td>
-                    <td>0-11-0</td>
-                </tr>
-            
-        </tbody>
-    </table>
+  <div class="wrapper">
+    <header>
+      <h1>CVI RATINGS 1998 <a href="../college-football.html"><< Back to Archive</a></h1>
+    </header>
+    <main class="fullspan">
+      <pre>
+  1.        Tennessee                             0.97932388        13-0-0
+  2.        Ohio State                            0.95884044        11-1-0
+  3.        Florida State                         0.93584079        11-2-0
+  4.        Kansas State                          0.87975000        11-2-0
+  5.        Texas A&M                             0.86323394        11-3-0
+  6.        UCLA                                  0.85438378        10-2-0
+  7.        Wisconsin                             0.84654728        11-1-0
+  8.        Florida                               0.83534712        10-2-0
+  9.        Air Force                             0.80370275        12-1-0
+ 10.        Nebraska                              0.79658043        9-4-0
+==========================================================================
+ 11.        Arizona                               0.78710942        12-1-0
+ 12.        Tulane                                0.78545255        12-0-0
+ 13.        Michigan                              0.77645807        10-3-0
+ 14.        Georgia Tech                          0.77507663        10-2-0
+ 15.        Virginia Tech                         0.76955549        9-3-0
+ 16.        Syracuse                              0.76105781        8-4-0
+ 17.        Miami                                 0.75893958        9-3-0
+ 18.        Texas                                 0.75788975        9-3-0
+ 19.        Missouri                              0.75558558        8-4-0
+ 20.        Penn State                            0.74902562        9-3-0
+==========================================================================
+ 21.        Purdue                                0.74890922        9-4-0
+ 22.        Arkansas                              0.73034607        9-3-0
+ 23.        Virginia                              0.72447461        9-3-0
+ 24.        Notre Dame                            0.71701110        9-3-0
+ 25.        West Virginia                         0.69755697        8-4-0
+ 26.        USC                                   0.68989033        8-5-0
+ 27.        Colorado                              0.68675042        8-4-0
+ 28.        Oregon                                0.68664532        8-4-0
+ 29.        Georgia                               0.68455292        9-3-0
+ 30.        Miami (OH)                            0.67116148        10-1-0
+==========================================================================
+ 31.        Marshall                              0.64881214        12-1-0
+ 32.        Wyoming                               0.63115024        8-3-0
+ 33.        Colorado State                        0.61634589        8-4-0
+ 34.        Alabama                               0.61373134        7-5-0
+ 35.        Michigan State                        0.61313839        6-6-0
+ 36.        Mississippi State                     0.60680577        8-5-0
+ 37.        Southern Miss                         0.59585523        7-5-0
+ 38.        Texas Tech                            0.58906678        7-5-0
+ 39.        NC State                              0.58461404        7-5-0
+ 40.        UCF                                   0.58449654        9-2-0
+==========================================================================
+ 41.        Kentucky                              0.57907558        7-5-0
+ 42.        BYU                                   0.57685732        9-5-0
+ 43.        Washington                            0.55274849        6-6-0
+ 44.        Utah                                  0.54457291        7-4-0
+ 45.        North Carolina                        0.53777492        7-5-0
+ 46.        TCU                                   0.53128906        7-5-0
+ 47.        Louisville                            0.52899742        7-5-0
+ 48.        Oklahoma State                        0.52430613        5-6-0
+ 49.        Idaho                                 0.52422420        9-3-0
+ 50.        San Diego State                       0.52274222        7-5-0
+==========================================================================
+ 51.        LSU                                   0.52234527        4-7-0
+ 52.        Toledo                                0.51333783        7-5-0
+ 53.        Rice                                  0.49545819        5-6-0
+ 54.        Ole Miss                              0.49154243        7-5-0
+ 55.        Arizona State                         0.48930997        5-6-0
+ 56.        Minnesota                             0.48599600        5-6-0
+ 57.        Auburn                                0.48023277        3-8-0
+ 58.        Oregon State                          0.47946403        5-6-0
+ 59.        California                            0.47824049        5-6-0
+ 60.        Fresno State                          0.46702441        5-6-0
+==========================================================================
+ 61.        Boston College                        0.46546220        4-7-0
+ 62.        Bowling Green                         0.45658545        5-6-0
+ 63.        Nevada                                0.45584428        6-5-0
+ 64.        Oklahoma                              0.44877527        5-6-0
+ 65.        Louisiana Tech                        0.44623347        6-6-0
+ 66.        Indiana                               0.44141684        4-7-0
+ 67.        East Carolina                         0.42364635        6-5-0
+ 68.        Ohio                                  0.41703021        5-6-0
+ 69.        SMU                                   0.41362891        5-7-0
+ 70.        Western Michigan                      0.40442077        7-4-0
+==========================================================================
+ 71.        Kansas                                0.39872510        4-7-0
+ 72.        Boise State                           0.39169174        6-5-0
+ 73.        Central Michigan                      0.38159941        6-5-0
+ 74.        Army                                  0.37800677        3-8-0
+ 75.        Tulsa                                 0.37758776        4-7-0
+ 76.        Stanford                              0.37315770        3-8-0
+ 77.        Iowa                                  0.34564178        3-8-0
+ 78.        Clemson                               0.34437264        3-8-0
+ 79.        Rutgers                               0.34270783        5-6-0
+ 80.        San Jose State                        0.34106421        4-8-0
+==========================================================================
+ 81.        Baylor                                0.33709175        2-9-0
+ 82.        Iowa State                            0.33487119        3-8-0
+ 83.        Akron                                 0.33476286        4-7-0
+ 84.        Houston                               0.33468003        3-8-0
+ 85.        UL Monroe                             0.31402940        5-6-0
+ 86.        Wake Forest                           0.31046095        3-8-0
+ 87.        Northwestern                          0.30878325        3-9-0
+ 88.        Maryland                              0.30622170        3-8-0
+ 89.        Washington State                      0.30439507        3-8-0
+ 90.        UTEP                                  0.30327986        3-8-0
+==========================================================================
+ 91.        Duke                                  0.30315313        4-7-0
+ 92.        Memphis                               0.29914580        2-9-0
+ 93.        UAB                                   0.29443743        4-7-0
+ 94.        North Texas                           0.28807071        3-8-0
+ 95.        New Mexico State                      0.28723892        3-8-0
+ 96.        Pittsburgh                            0.28588732        2-9-0
+ 97.        Utah State                            0.28417424        3-8-0
+ 98.        Illinois                              0.27297012        3-8-0
+ 99.        South Carolina                        0.27145244        1-10-0
+100.        Temple                                0.26942032        2-9-0
+==========================================================================
+101.        Eastern Michigan                      0.25916152        3-8-0
+102.        Navy                                  0.25125886        3-8-0
+103.        Cincinnati                            0.24831097        2-9-0
+104.        Northern Illinois                     0.23873933        2-9-0
+105.        Arkansas State                        0.23405235        4-8-0
+106.        New Mexico                            0.22392539        3-9-0
+107.        Vanderbilt                            0.21777470        2-9-0
+108.        Ball State                            0.18665508        1-10-0
+109.        Louisiana                             0.17703770        2-9-0
+110.        FCS                                   0.15892450        6-41-0
+==========================================================================
+111.        UNLV                                  0.13629189        0-11-0
+112.        Hawai'i                               0.11914115        0-12-0
+113.        Kent State                            0.08004610        0-11-0
+      </pre>
+    </main>
+  </div>
 </body>
 </html>
