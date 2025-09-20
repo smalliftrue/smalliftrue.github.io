@@ -6,6 +6,16 @@
   <title>College Football Rankings</title>
   <link rel="stylesheet" href="styles.css"/>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    .index-links ul li {
+      font-size: 1.1em;
+    }
+    .year-summary {
+      margin-left: 10px;
+      font-style: italic;
+      color: #444;
+    }
+  </style>
 </head>
 <body>
   <div class="wrapper">
@@ -97,25 +107,16 @@
   async function loadTop25() {
     const list = document.querySelector(".top25");
     if (!list) return;
-
-    // Allow overriding the source path via data-src on the <ol>
     const src = list.dataset.src || "cfr/cfr2025.html";
-
     try {
-      // Cache-bust so weekly updates show up immediately on GitHub Pages
       const response = await fetch(src + "?v=" + Date.now());
       if (!response.ok) throw new Error("HTTP " + response.status);
       const html = await response.text();
-
-      // Parse fetched HTML and get the <pre> text
       const doc = new DOMParser().parseFromString(html, "text/html");
       const pre = doc.querySelector("pre");
       const preText = pre ? pre.textContent : html;
-
-      // Parse lines and extract the team names for the first 25 ranks
       const names = [];
       const lines = preText.split(/\r?\n/);
-
       for (const line of lines) {
         const m = line.match(/^\s*\d+\.\s+(.+?)\s+\d/);
         if (m) {
@@ -123,13 +124,10 @@
           if (names.length === 25) break;
         }
       }
-
       if (names.length === 0) {
         console.warn("No ranked team lines found. Check the source format.");
         return;
       }
-
-      // Replace list contents
       list.innerHTML = "";
       names.forEach(team => {
         const li = document.createElement("li");
@@ -141,11 +139,47 @@
     }
   }
 
-  // Run when DOM is ready
+  async function loadYearSummaries() {
+    const yearLinks = document.querySelectorAll(".index-links ul li a");
+    for (const link of yearLinks) {
+      const href = link.getAttribute("href");
+      try {
+        const res = await fetch(href + "?v=" + Date.now());
+        if (!res.ok) continue;
+        const html = await res.text();
+        const doc = new DOMParser().parseFromString(html, "text/html");
+        const pre = doc.querySelector("pre");
+        const preText = pre ? pre.textContent : html;
+        const names = [];
+        const lines = preText.split(/\r?\n/);
+        for (const line of lines) {
+          const m = line.match(/^\s*\d+\.\s+(.+?)\s+\d/);
+          if (m) {
+            names.push(m[1].trim());
+            if (names.length === 5) break;
+          }
+        }
+        if (names.length > 0) {
+          const formatted = names.map((t, i) => `${i+1}. ${t}`).join(", ") + "…";
+          const span = document.createElement("span");
+          span.className = "year-summary";
+          span.textContent = formatted;
+          link.parentElement.appendChild(span);
+        }
+      } catch (e) {
+        console.warn("Failed to load year summary for", href);
+      }
+    }
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", loadTop25);
+    document.addEventListener("DOMContentLoaded", () => {
+      loadTop25();
+      loadYearSummaries();
+    });
   } else {
     loadTop25();
+    loadYearSummaries();
   }
   </script>
 
