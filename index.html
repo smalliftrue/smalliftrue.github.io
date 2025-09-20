@@ -38,33 +38,8 @@
 
     <aside class="sidebar-left">
       <div class="vertical-text">FOOTBALL (FBS) 14.9.25</div>
-      <!-- You can change data-src if cfr2025.html lives elsewhere -->
-      <ol class="top25" data-src="cfr/cfr2025.html">
-        <li>Team 1</li>
-        <li>Team 2</li>
-        <li>Team 3</li>
-        <li>Team 4</li>
-        <li>Team 5</li>
-        <li>Team 6</li>
-        <li>Team 7</li>
-        <li>Team 8</li>
-        <li>Team 9</li>
-        <li>Team 10</li>
-        <li>Team 11</li>
-        <li>Team 12</li>
-        <li>Team 13</li>
-        <li>Team 14</li>
-        <li>Team 15</li>
-        <li>Team 16</li>
-        <li>Team 17</li>
-        <li>Team 18</li>
-        <li>Team 19</li>
-        <li>Team 20</li>
-        <li>Team 21</li>
-        <li>Team 22</li>
-        <li>Team 23</li>
-        <li>Team 24</li>
-        <li>Team 25</li>
+      <ol class="top25" data-year="2025">
+        <li>Loading…</li>
       </ol>
     </aside>
 
@@ -92,61 +67,34 @@
     </main>
   </div>
 
-  <!-- Script to dynamically load top 25 from cfr2025.html -->
-  <script>
-  async function loadTop25() {
+<script>
+async function loadData() {
+  try {
+    const res = await fetch("summaries.json?v=" + Date.now());
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const summaries = await res.json();
+
     const list = document.querySelector(".top25");
-    if (!list) return;
-
-    // Allow overriding the source path via data-src on the <ol>
-    const src = list.dataset.src || "cfr/cfr2025.html";
-
-    try {
-      // Cache-bust so weekly updates show up immediately on GitHub Pages
-      const response = await fetch(src + "?v=" + Date.now());
-      if (!response.ok) throw new Error("HTTP " + response.status);
-      const html = await response.text();
-
-      // Parse fetched HTML and get the <pre> text
-      const doc = new DOMParser().parseFromString(html, "text/html");
-      const pre = doc.querySelector("pre");
-      const preText = pre ? pre.textContent : html;
-
-      // Parse lines and extract the team names for the first 25 ranks
-      const names = [];
-      const lines = preText.split(/\r?\n/);
-
-      for (const line of lines) {
-        const m = line.match(/^\s*\d+\.\s+(.+?)\s+\d/);
-        if (m) {
-          names.push(m[1].trim());
-          if (names.length === 25) break;
-        }
-      }
-
-      if (names.length === 0) {
-        console.warn("No ranked team lines found. Check the source format.");
-        return;
-      }
-
-      // Replace list contents
+    const year = list.dataset.year;
+    if (summaries[year]) {
       list.innerHTML = "";
-      names.forEach(team => {
+      summaries[year].forEach(team => {
         const li = document.createElement("li");
         li.textContent = team;
         list.appendChild(li);
       });
-    } catch (err) {
-      console.error("Error loading top 25:", err);
     }
+  } catch (e) {
+    console.error("Error loading data:", e);
   }
+}
 
-  // Run when DOM is ready
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", loadTop25);
-  } else {
-    loadTop25();
-  }
-  </script>
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", loadData);
+} else {
+  loadData();
+}
+</script>
+
 </body>
 </html>

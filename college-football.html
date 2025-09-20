@@ -13,19 +13,18 @@
     .year-summary {
       margin-left: 10px;
       font-style: italic;
-      color: #444;
+      color: #000;
     }
   </style>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J4YREW73WW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-J4YREW73WW');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J4YREW73WW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-J4YREW73WW');
+  </script>
 </head>
 <body>
   <div class="wrapper">
@@ -34,34 +33,9 @@
     </header>
     <aside class="sidebar-left">
       <div class="vertical-text">FOOTBALL (FBS) 14.9.25</div>
-	<ol class="top25" data-src="cfr/cfr2025.html">
-        <li>Team 1</li>
-        <li>Team 2</li>
-        <li>Team 3</li>
-        <li>Team 4</li>
-        <li>Team 5</li>
-        <li>Team 6</li>
-        <li>Team 7</li>
-        <li>Team 8</li>
-        <li>Team 9</li>
-        <li>Team 10</li>
-        <li>Team 11</li>
-        <li>Team 12</li>
-        <li>Team 13</li>
-        <li>Team 14</li>
-        <li>Team 15</li>
-        <li>Team 16</li>
-        <li>Team 17</li>
-        <li>Team 18</li>
-        <li>Team 19</li>
-        <li>Team 20</li>
-        <li>Team 21</li>
-        <li>Team 22</li>
-        <li>Team 23</li>
-        <li>Team 24</li>
-        <li>Team 25</li>
+      <ol class="top25" data-year="2025">
+        <li>Loading…</li>
       </ol>
-
     </aside>
     <main>
       <section class="index-links">
@@ -110,88 +84,55 @@
           <li><a href="cfr/cfr1984.html">1984</a></li>
         </ul>
       </section>
-
     </main>
   </div>
-  <script>
-  async function loadTop25() {
-    const list = document.querySelector(".top25");
-    if (!list) return;
-    const src = list.dataset.src || "cfr/cfr2025.html";
-    try {
-      const response = await fetch(src + "?v=" + Date.now());
-      if (!response.ok) throw new Error("HTTP " + response.status);
-      const html = await response.text();
-      const doc = new DOMParser().parseFromString(html, "text/html");
-      const pre = doc.querySelector("pre");
-      const preText = pre ? pre.textContent : html;
-      const names = [];
-      const lines = preText.split(/\r?\n/);
-      for (const line of lines) {
-        const m = line.match(/^\s*\d+\.\s+(.+?)\s+\d/);
-        if (m) {
-          names.push(m[1].trim());
-          if (names.length === 25) break;
-        }
-      }
-      if (names.length === 0) {
-        console.warn("No ranked team lines found. Check the source format.");
-        return;
-      }
-      list.innerHTML = "";
-      names.forEach(team => {
-        const li = document.createElement("li");
-        li.textContent = team;
-        list.appendChild(li);
-      });
-    } catch (err) {
-      console.error("Error loading top 25:", err);
-    }
-  }
 
-  async function loadYearSummaries() {
-    const yearLinks = document.querySelectorAll(".index-links ul li a");
-    for (const link of yearLinks) {
-      const href = link.getAttribute("href");
-      try {
-        const res = await fetch(href + "?v=" + Date.now());
-        if (!res.ok) continue;
-        const html = await res.text();
-        const doc = new DOMParser().parseFromString(html, "text/html");
-        const pre = doc.querySelector("pre");
-        const preText = pre ? pre.textContent : html;
-        const names = [];
-        const lines = preText.split(/\r?\n/);
-        for (const line of lines) {
-          const m = line.match(/^\s*\d+\.\s+(.+?)\s+\d/);
-          if (m) {
-            names.push(m[1].trim());
-            if (names.length === 5) break;
-          }
-        }
-        if (names.length > 0) {
-          const formatted = names.map((t, i) => `${i+1}. ${t}`).join(", ") + "…";
+  <script>
+  async function loadData() {
+    try {
+      const res = await fetch("summaries.json?v=" + Date.now());
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const summaries = await res.json();
+
+      // --- Fill current Top 25 ---
+      const list = document.querySelector(".top25");
+      const year = list.dataset.year;
+      if (summaries[year]) {
+        list.innerHTML = "";
+        summaries[year].forEach(team => {
+          const li = document.createElement("li");
+          li.textContent = team;
+          list.appendChild(li);
+        });
+      }
+
+      // --- Fill archive summaries ---
+      const yearLinks = document.querySelectorAll(".index-links ul li a");
+      yearLinks.forEach(link => {
+        const href = link.getAttribute("href");
+        const match = href.match(/cfr(\d+)\.html$/);
+        if (!match) return;
+        const y = match[1];
+        if (summaries[y]) {
+          const top5 = summaries[y].slice(0,5);
+          const formatted = top5.map((t,i)=>`${i+1}. ${t}`).join(", ") + "…";
           const span = document.createElement("span");
           span.className = "year-summary";
           span.textContent = formatted;
           link.parentElement.appendChild(span);
         }
-      } catch (e) {
-        console.warn("Failed to load year summary for", href);
-      }
+      });
+
+    } catch (err) {
+      console.error("Error loading summaries.json:", err);
     }
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => {
-      loadTop25();
-      loadYearSummaries();
-    });
+    document.addEventListener("DOMContentLoaded", loadData);
   } else {
-    loadTop25();
-    loadYearSummaries();
+    loadData();
   }
   </script>
-
 </body>
 </html>
