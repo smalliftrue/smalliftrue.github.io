@@ -92,6 +92,17 @@ main {
   text-decoration: underline;
 }
 
+.linkbox {
+  border: 2px solid #333;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.linkbox a {
+  color: #00F;
+  text-decoration: underline;
+}
+
 /* Index links section box */
 .index-links {
   border: 2px solid #333;
